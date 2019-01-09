@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/space_5"
+    android:layout_marginTop="@dimen/space_5"
+    android:layout_marginRight="@dimen/space_5"
+    app:cardCornerRadius="@dimen/space_5"
+    app:cardElevation="@dimen/space_1"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_5"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_5">
+
+        <TextView
+            android:id="@+id/story_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_5"
+            android:layout_weight="1"
+            android:maxLines="3"
+            android:padding="@dimen/space_5"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/item_news_size"
+            tools:text="在吐槽看不懂之前，先问：当代艺术需要被公众理解吗" />
+
+        <FrameLayout
+            android:id="@+id/story_frame_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/story_iv"
+                android:layout_width="@dimen/space_80"
+                android:layout_height="@dimen/space_80"
+                android:scaleType="centerCrop"
+                tools:background="@color/colorPrimary" />
+
+            <ImageView
+                android:id="@+id/multi_pic_iv"
+                android:layout_width="@dimen/space_40"
+                android:layout_height="@dimen/space_16"
+                android:layout_gravity="bottom|right"
+                android:scaleType="centerCrop"
+                android:src="@drawable/home_pic"
+                android:visibility="invisible"
+                tools:visibility="visible" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

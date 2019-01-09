@@ -1,0 +1,46 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="pri.weiqiang.myapplication.MainActivity">
+    <item
+        android:id="@+id/item_content"
+        android:title="@string/menu_vocab"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_fav"
+        android:title="@string/menu_fav"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_expand"
+        android:title="@string/menu_expand"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        app:showAsAction="ifRoom" />.
+    <item
+        android:id="@+id/item_technology"
+        android:title="@string/menu_technology"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_science"
+        android:title="@string/menu_science"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_business"
+        android:title="@string/menu_business"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_general"
+        android:title="@string/menu_general"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_entertainment"
+        android:title="@string/menu_entertainment"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_zhihu"
+        android:title="@string/menu_zhihu"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="pri.weiqiang.liyujapanese.ui.fragment.WordsFragment">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <!--android:backgroundTint="@color/colorPrimary"  app:fab_colorNormal="@color/colorAccent" app:fab_colorPressed="@color/cardview_light_background"-->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        app:layout_anchor="@+id/recycler_view"
+        app:layout_anchorGravity="right|bottom"
+        app:layout_behavior="pri.weiqiang.liyujapanese.widget.behavior.FabBehavior"
+        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+
+</android.support.design.widget.CoordinatorLayout>

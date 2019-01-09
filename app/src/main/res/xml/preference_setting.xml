@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/system_setting">
+
+        <ListPreference
+            android:key="setting_theme"
+            android:title="@string/theme" />
+        <ListPreference
+            android:key="setting_tts"
+            android:title="@string/setting_tts" />
+        <!--        <CheckBoxPreference
+                    android:title="@string/title_allow_download_without_wifi"
+                    android:summary="@string/summary_allow_download_without_wifi"
+                    android:key="setting_wifi" />-->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/more_setting">
+
+        <Preference
+            android:key="setting_update"
+            android:title="@string/update_setting" />
+
+        <Preference android:title="@string/tips_setting" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/space_5"
+    android:layout_marginTop="@dimen/space_5"
+    android:layout_marginRight="@dimen/space_5"
+    android:layout_marginBottom="@dimen/space_5"
+    android:foreground="?android:selectableItemBackground"
+    app:cardCornerRadius="@dimen/pixivillust_corners"
+    app:cardElevation="@dimen/pixivillust_elevation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_word"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tips_memory"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/pixivillust_text_size" />
+
+
+            <TextView
+                android:id="@+id/tv_memory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/tips_memory"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="@dimen/pixivillust_text_size" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
