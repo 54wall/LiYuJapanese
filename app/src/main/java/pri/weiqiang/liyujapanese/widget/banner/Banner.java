@@ -2,8 +2,6 @@ package pri.weiqiang.liyujapanese.widget.banner;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -20,6 +18,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.loader.ImageLoaderInterface;
 

@@ -1,7 +1,6 @@
 package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import pri.weiqiang.liyujapanese.MyApplication;
 import pri.weiqiang.liyujapanese.R;

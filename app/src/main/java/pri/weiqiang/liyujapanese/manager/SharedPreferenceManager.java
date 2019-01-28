@@ -2,8 +2,8 @@ package pri.weiqiang.liyujapanese.manager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
 
+import androidx.annotation.Nullable;
 import pri.weiqiang.liyujapanese.MyApplication;
 import pri.weiqiang.liyujapanese.config.Constants;
 

@@ -2,14 +2,15 @@ package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.mvp.bean.PixivIllustTab;

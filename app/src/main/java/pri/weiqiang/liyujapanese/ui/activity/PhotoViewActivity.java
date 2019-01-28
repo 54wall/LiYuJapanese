@@ -2,7 +2,6 @@ package pri.weiqiang.liyujapanese.ui.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -15,6 +14,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 import java.io.File;
 import java.util.concurrent.ExecutionException;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

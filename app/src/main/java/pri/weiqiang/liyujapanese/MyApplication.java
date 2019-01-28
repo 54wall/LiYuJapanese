@@ -1,13 +1,13 @@
 package pri.weiqiang.liyujapanese;
 
 import android.app.Application;
-import android.support.v7.app.AppCompatDelegate;
 
 import com.blankj.utilcode.utils.NetworkUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.analytics.MobclickAgent;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import pri.weiqiang.liyujapanese.config.Constants;
 import pri.weiqiang.liyujapanese.manager.SharedPreferenceManager;
 

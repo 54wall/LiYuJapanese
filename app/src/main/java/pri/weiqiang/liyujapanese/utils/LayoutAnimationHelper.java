@@ -1,6 +1,5 @@
 package pri.weiqiang.liyujapanese.utils;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -10,6 +9,8 @@ import android.view.animation.LayoutAnimationController;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import static android.view.animation.Animation.RELATIVE_TO_SELF;
 

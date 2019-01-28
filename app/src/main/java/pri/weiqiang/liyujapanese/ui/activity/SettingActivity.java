@@ -1,12 +1,12 @@
 package pri.weiqiang.liyujapanese.ui.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import butterknife.BindView;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;

@@ -1,7 +1,6 @@
 package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -11,6 +10,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.config.Constants;

@@ -1,10 +1,10 @@
 package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import butterknife.BindView;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.rxbus.RxBus;

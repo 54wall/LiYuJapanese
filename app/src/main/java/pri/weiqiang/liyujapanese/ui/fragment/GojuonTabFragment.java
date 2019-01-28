@@ -1,12 +1,13 @@
 package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import pri.weiqiang.liyujapanese.MyApplication;
 import pri.weiqiang.liyujapanese.R;

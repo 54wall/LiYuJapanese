@@ -1,13 +1,13 @@
 package pri.weiqiang.liyujapanese.ui.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.umeng.analytics.MobclickAgent;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import pri.weiqiang.liyujapanese.manager.ActivityManager;
 

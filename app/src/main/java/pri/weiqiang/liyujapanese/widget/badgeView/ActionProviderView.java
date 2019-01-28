@@ -2,13 +2,13 @@ package pri.weiqiang.liyujapanese.widget.badgeView;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.ActionProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.view.ActionProvider;
 import pri.weiqiang.liyujapanese.R;
 
 /**
@@ -26,8 +26,8 @@ public class ActionProviderView extends ActionProvider {
 
     @Override
     public View onCreateActionView() {
-        int size = getContext().getResources().getDimensionPixelSize(android.support.design.R.dimen.abc_action_bar_default_height_material);
-
+        int size = getContext().getResources().getDimensionPixelSize(com.google.android.material.R.dimen.abc_action_bar_content_inset_material);
+//        int size = getContext().getResources().getDimensionPixelSize(android.support.design.R.dimen.abc_action_bar_default_height_material);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(size, size);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.item_menu_action_provider, null, false);
         view.setLayoutParams(params);

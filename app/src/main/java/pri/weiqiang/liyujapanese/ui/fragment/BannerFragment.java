@@ -1,11 +1,11 @@
 package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.config.Constants;
