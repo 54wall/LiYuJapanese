@@ -31,7 +31,7 @@ import pri.weiqiang.liyujapanese.utils.ResourceUtils;
 
 public class DBManager {
 
-    private static DBManager instance = null;
+    private volatile static DBManager instance = null;
     public final String CREATE_FAV = "create table"
             + " " + JPDatabase.DB_TABLE_FAV
             + "("
@@ -65,12 +65,14 @@ public class DBManager {
     private DBManager() {
     }
 
-    public static synchronized DBManager getInstance() {
-
+    public static DBManager getInstance() {
         if (instance == null) {
-            instance = new DBManager();
+            synchronized (DBManager.class) {
+                if (instance == null) {
+                    instance = new DBManager();
+                }
+            }
         }
-
         return instance;
     }
 

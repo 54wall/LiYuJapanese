@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class ActivityManager {
 
-    public static Activity current;
+    public volatile static Activity current;
     private static ActivityManager instance = null;
     private final String TAG = getClass().getSimpleName();
     private Vector<Activity> activities = new Vector<>();
@@ -16,14 +16,17 @@ public class ActivityManager {
     }
 
 
-    public synchronized static ActivityManager getInstance() {
-
+    public static ActivityManager getInstance() {
         if (instance == null) {
-            instance = new ActivityManager();
+            synchronized (ActivityManager.class) {
+                if (instance == null) {
+                    instance = new ActivityManager();
+                }
+            }
         }
-
         return instance;
     }
+
 
     public static Activity getCurrent() {
         return current;

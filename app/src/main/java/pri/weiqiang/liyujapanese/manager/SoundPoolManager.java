@@ -16,7 +16,7 @@ public class SoundPoolManager {
 
     public static final ArrayList<GojuonSound> sounds = new ArrayList<>();
     private static final String TAG = SoundPoolManager.class.getSimpleName();
-    private static SoundPoolManager instance = null;
+    private volatile static SoundPoolManager instance = null;
 
     static {
 
@@ -138,13 +138,15 @@ public class SoundPoolManager {
 
     }
 
-    public static synchronized SoundPoolManager getInstance() {
-
+    public static SoundPoolManager getInstance() {
         if (instance == null) {
-            instance = new SoundPoolManager();
+            synchronized (SoundPoolManager.class) {
+                if (instance == null) {
+                    instance = new SoundPoolManager();
+                }
+            }
         }
         return instance;
-
     }
 
     public void init() {

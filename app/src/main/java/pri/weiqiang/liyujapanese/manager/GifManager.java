@@ -10,20 +10,22 @@ import pri.weiqiang.liyujapanese.mvp.bean.GojuonGif;
 public class GifManager {
 
     private static final String TAG = GifManager.class.getSimpleName();
-    private static GifManager instance;
+    private volatile static GifManager instance;
 
     public ConcurrentHashMap<String, GojuonGif> gifs = new ConcurrentHashMap<>();
 
     private GifManager() {
     }
 
-    public static synchronized GifManager getInstance() {
+    public static GifManager getInstance() {
         if (instance == null) {
-            instance = new GifManager();
+            synchronized (GifManager.class) {
+                if (instance == null) {
+                    instance = new GifManager();
+                }
+            }
         }
-
         return instance;
-
     }
 
     public void init() {

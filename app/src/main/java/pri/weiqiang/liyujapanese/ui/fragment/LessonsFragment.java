@@ -116,7 +116,7 @@ public class LessonsFragment extends BaseFragment implements BaseView.LessonsFra
                     showHeadView();
                     return;
                 }
-                View underView = null;
+                View underView;
                 if (dy > 0) {
                     underView = mRightMenu.findChildViewUnder(headerLayout.getX(), headerLayout.getMeasuredHeight() + 1);
                 } else {
@@ -184,18 +184,11 @@ public class LessonsFragment extends BaseFragment implements BaseView.LessonsFra
     @Override
     public void onLeftItemSelected(int position, Book menu) {
         int sum = 0;
-        Long start = System.currentTimeMillis();
         for (int i = 0; i < position; i++) {
             sum += mBookList.get(i).getLessonList().size() + 1;
         }
-        Long end = System.currentTimeMillis();
-        Log.e(TAG, "onLeftItemSelected-time: " + (end - start));
-
-        Long start2 = System.currentTimeMillis();
         LinearLayoutManager layoutManager = (LinearLayoutManager) mRightMenu.getLayoutManager();
         layoutManager.scrollToPositionWithOffset(sum, 0);
         leftClickType = true;
-        Long end2 = System.currentTimeMillis();
-        Log.e(TAG, "onLeftItemSelected-time: " + (end2 - start2));
     }
 }

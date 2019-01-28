@@ -8,7 +8,7 @@ import pri.weiqiang.liyujapanese.MyApplication;
 public class ClipboardManager {
 
 
-    private static ClipboardManager instance;
+    private volatile static ClipboardManager instance;
     private android.content.ClipboardManager clipboardManager;
 
     private ClipboardManager() {
@@ -18,14 +18,15 @@ public class ClipboardManager {
     }
 
 
-    public static synchronized ClipboardManager getInstance() {
-
+    public static ClipboardManager getInstance() {
         if (instance == null) {
-            instance = new ClipboardManager();
+            synchronized (ClipboardManager.class) {
+                if (instance == null) {
+                    instance = new ClipboardManager();
+                }
+            }
         }
-
         return instance;
-
     }
 
     public String getText() {

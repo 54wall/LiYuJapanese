@@ -1,3 +1,14 @@
+### 前言
+最近在网上找到了一个新闻API接口，这里也推荐下[News API](https://newsapi.org/)，可以根据请求参数获取相关新闻，支持国家区域定制，得到的新闻json数据有多种语言，个人使用免费，在调用获取新闻后，报出一下错误：
+javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.
+
+### 解决方案
+在网上搜索一番，发现这两篇对我对有用，它们分别是
+[解决OKHttp3 报OKHTTP javax.net.ssl.SSLHandshakeException错误](https://blog.csdn.net/quincyjiang/article/details/76273446)
+
+[retrofit2中ssl的Trust anchor for certification path not found问题](https://www.cnblogs.com/maomishen/p/5403301.html)，最后发现只有这个忽略SSL检测方案可以解决这个问题，不过还是不建议这么做，因为在[News API](https://newsapi.org/)没有找到相关的证书说明文档，索性就忽略吧。代码如下，思路就是利用反射，全部工程文件可以参考- [鲤鱼日语](https://github.com/54wall/LiYuJapanese)
+
+```java
 package pri.weiqiang.liyujapanese.network.newsapi;
 
 import android.util.Log;
@@ -22,20 +33,15 @@ public class NewsApiNetworks {
 
     private static final int DEFAULT_TIMEOUT = 5000;//5
     private static Retrofit retrofit;
-    private volatile static NewsApiNetworks mNetworks;
+    private static NewsApiNetworks mNetworks;
     private NewsApiCommon newsApiCommon;
     private String TAG = NewsApiNetworks.class.getSimpleName();
 
     private OkHttpClient sClient = new OkHttpClient.Builder().connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).build();
 
-    //双重检验的单例模式
     public static NewsApiNetworks getInstance() {
         if (mNetworks == null) {
-            synchronized (NewsApiNetworks.class) {
-                if (mNetworks == null) {
-                    mNetworks = new NewsApiNetworks();
-                }
-            }
+            mNetworks = new NewsApiNetworks();
         }
         return mNetworks;
     }
@@ -105,3 +111,11 @@ public class NewsApiNetworks {
         return retrofit.create(service);
     }
 }
+
+```
+
+### 参考
+
+[解决OKHttp3 报OKHTTP javax.net.ssl.SSLHandshakeException错误](https://blog.csdn.net/quincyjiang/article/details/76273446)
+
+[retrofit2中ssl的Trust anchor for certification path not found问题](https://www.cnblogs.com/maomishen/p/5403301.html)

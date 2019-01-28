@@ -9,7 +9,7 @@ import pri.weiqiang.liyujapanese.config.Constants;
 
 public class SharedPreferenceManager {
 
-    private static SharedPreferenceManager instance = null;
+    private volatile static SharedPreferenceManager instance = null;
 
     private final SharedPreferences sharedPreferences;
 
@@ -19,12 +19,14 @@ public class SharedPreferenceManager {
 
     }
 
-    public static synchronized SharedPreferenceManager getInstance() {
-
+    public static SharedPreferenceManager getInstance() {
         if (instance == null) {
-            instance = new SharedPreferenceManager();
+            synchronized (SharedPreferenceManager.class) {
+                if (instance == null) {
+                    instance = new SharedPreferenceManager();
+                }
+            }
         }
-
         return instance;
     }
 
