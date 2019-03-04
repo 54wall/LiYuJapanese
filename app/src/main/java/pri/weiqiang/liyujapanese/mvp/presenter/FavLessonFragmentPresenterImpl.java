@@ -46,8 +46,8 @@ public class FavLessonFragmentPresenterImpl extends BasePresenter<BaseView.FavLe
     }
 
     @Override
-    public void disposable() {
-        Log.e(TAG,"disposable()");
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
         model.unsubscribe();
     }
 

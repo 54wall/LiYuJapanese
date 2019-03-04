@@ -56,5 +56,11 @@ public class FavWordsFragmentPresenterImpl extends BasePresenter<BaseView.FavWor
         view.setRecyclerView();
         view.setData(wordList);
     }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        model.unsubscribe();
+    }
 }
 

@@ -1,5 +1,7 @@
 package pri.weiqiang.liyujapanese.mvp.presenter;
 
+import android.util.Log;
+
 import java.util.List;
 
 import io.reactivex.functions.Consumer;
@@ -12,6 +14,7 @@ import pri.weiqiang.liyujapanese.mvp.view.BaseView;
 public class GojuonMemoryFragmentPresenterImpl extends BasePresenter<BaseView.GojuonMemoryFragmentView> implements BasePresenter.GojuonMemoryFragmentPresenter {
 
     BaseModel.GojuonMemoryFragmentModel model;
+    private String TAG = GojuonFragmentPresenterImpl.class.getSimpleName();
 
     public GojuonMemoryFragmentPresenterImpl(BaseView.GojuonMemoryFragmentView view) {
         super(view);
@@ -28,5 +31,11 @@ public class GojuonMemoryFragmentPresenterImpl extends BasePresenter<BaseView.Go
                 view.setData(gojuonMemories);
             }
         });
+    }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        model.unsubscribe();
     }
 }

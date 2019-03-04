@@ -12,6 +12,11 @@ import pri.weiqiang.liyujapanese.utils.ResourceUtils;
 public class GojuonMemoryTabFragmentModelImpl implements BaseModel.GojuonMemoryTabFragmentModel {
 
     @Override
+    public void unsubscribe() {
+
+    }
+
+    @Override
     public List<GojuonTab> getData() {
 
         List<GojuonTab> list = new ArrayList<>();

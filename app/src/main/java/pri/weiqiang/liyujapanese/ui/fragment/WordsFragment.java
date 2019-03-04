@@ -98,7 +98,15 @@ public class WordsFragment extends BaseFragment implements BaseView.WordsFragmen
     @Override
     public void setRecyclerView() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.e(TAG, "onDestroy:presenter.unsubscribe();");
+        super.onDestroy();
+        // 将所有的 observer 取消订阅
+        presenter.unsubscribe();
     }
 }

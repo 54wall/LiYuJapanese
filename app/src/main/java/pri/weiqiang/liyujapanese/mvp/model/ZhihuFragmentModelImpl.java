@@ -2,6 +2,8 @@ package pri.weiqiang.liyujapanese.mvp.model;
 
 import android.util.Log;
 
+import java.util.List;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
@@ -9,8 +11,6 @@ import io.reactivex.schedulers.Schedulers;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.BeforeDailyEntity;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.LatestDailyEntity;
 import pri.weiqiang.liyujapanese.network.zhihu.Networks;
-
-import static pri.weiqiang.liyujapanese.mvp.model.BaseModel.mCompositeDisposable;
 
 
 public class ZhihuFragmentModelImpl implements BaseModel.ZhihuFragmentModel {
@@ -46,4 +46,14 @@ public class ZhihuFragmentModelImpl implements BaseModel.ZhihuFragmentModel {
         );
     }
 
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        mCompositeDisposable.clear();
+    }
+
+    @Override
+    public List<ZhihuFragmentModel> getData() {
+        return null;
+    }
 }

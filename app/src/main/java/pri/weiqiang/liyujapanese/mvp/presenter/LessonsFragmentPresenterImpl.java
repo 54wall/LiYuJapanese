@@ -36,4 +36,10 @@ public class LessonsFragmentPresenterImpl extends BasePresenter<BaseView.Lessons
             }
         });
     }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        model.unsubscribe();
+    }
 }

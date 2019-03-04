@@ -1,6 +1,7 @@
 package pri.weiqiang.liyujapanese.mvp.presenter;
 
 import android.content.DialogInterface;
+import android.util.Log;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import pri.weiqiang.liyujapanese.utils.ActivityUtils;
 public class PixivIllustFragmentPresenterImpl extends BasePresenter<BaseView.PixivIllustFragmentView> implements BasePresenter.PixivIllustFragmentPresenter {
 
     BaseModel.PixivIllustFragmentModel model;
+    private String TAG = PixivIllustFragmentPresenterImpl.class.getSimpleName();
 
 
     public PixivIllustFragmentPresenterImpl(BaseView.PixivIllustFragmentView view) {
@@ -73,5 +75,11 @@ public class PixivIllustFragmentPresenterImpl extends BasePresenter<BaseView.Pix
         });
 
 
+    }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        model.unsubscribe();
     }
 }

@@ -1,5 +1,7 @@
 package pri.weiqiang.liyujapanese.mvp.presenter;
 
+import android.util.Log;
+
 import java.util.List;
 
 import io.reactivex.functions.Consumer;
@@ -44,5 +46,11 @@ public class WordsFragmentPresenterImpl extends BasePresenter<BaseView.WordsFrag
         view.setRecyclerView();
         view.setData(wordList);
 
+    }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        model.unsubscribe();
     }
 }

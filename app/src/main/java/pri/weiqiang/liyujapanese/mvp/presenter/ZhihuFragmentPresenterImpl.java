@@ -58,4 +58,10 @@ public class ZhihuFragmentPresenterImpl extends BasePresenter<BaseView.ZhihuFrag
             }
         }, date);
     }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        model.unsubscribe();
+    }
 }

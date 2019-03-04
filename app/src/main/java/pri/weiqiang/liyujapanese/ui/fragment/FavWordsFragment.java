@@ -108,4 +108,12 @@ public class FavWordsFragment extends BaseFragment implements BaseView.FavWordsF
         adapter.setIsExpandable(isExpandable);
         adapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onDestroy() {
+        Log.e(TAG, "onDestroy:presenter.unsubscribe();");
+        super.onDestroy();
+        // 将所有的 observer 取消订阅
+        presenter.unsubscribe();
+    }
 }

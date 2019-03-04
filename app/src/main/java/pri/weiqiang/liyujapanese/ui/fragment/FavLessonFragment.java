@@ -153,9 +153,9 @@ public class FavLessonFragment extends BaseFragment implements BaseView.FavLesso
 
     @Override
     public void onDestroy() {
-        Log.e(TAG,"onDestroy:presenter.disposable();");
+        Log.e(TAG, "onDestroy:presenter.unsubscribe();");
         super.onDestroy();
         // 将所有的 observer 取消订阅
-        presenter.disposable();
+        presenter.unsubscribe();
     }
 }

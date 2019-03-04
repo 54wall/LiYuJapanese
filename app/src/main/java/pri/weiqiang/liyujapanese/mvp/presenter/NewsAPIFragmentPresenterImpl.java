@@ -65,4 +65,10 @@ public class NewsAPIFragmentPresenterImpl extends BasePresenter<BaseView.NewsAPI
 
     }
 
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        model.unsubscribe();
+    }
+
 }

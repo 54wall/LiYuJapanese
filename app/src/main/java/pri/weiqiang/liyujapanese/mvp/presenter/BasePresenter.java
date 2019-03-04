@@ -45,6 +45,8 @@ public abstract class BasePresenter<T> {
 
         void randomList();
 
+        void unsubscribe();
+
     }
 
     public interface NewsAPIFragmentPresenter {
@@ -52,6 +54,8 @@ public abstract class BasePresenter<T> {
         void getNews(String country, String from, String to, String category, String pageSize, String apiKey);
 
         void getNewsBefore(String country, String from, String to, String category, String pageSize, String apiKey);
+
+        void unsubscribe();
 
 
     }
@@ -61,6 +65,8 @@ public abstract class BasePresenter<T> {
         void initZhihuFragment();
 
         void getBeforeDaily(String date);
+
+        void unsubscribe();
 
     }
 
@@ -76,13 +82,15 @@ public abstract class BasePresenter<T> {
 
         void randomList();
 
+        void unsubscribe();
+
     }
 
     public interface FavLessonFragmentPresenter {
 
         void initFavLessonFragment();
 
-        void disposable();
+        void unsubscribe();
 
     }
 
@@ -90,17 +98,23 @@ public abstract class BasePresenter<T> {
 
         void initLessonsFragment();
 
+        void unsubscribe();
+
     }
 
     public interface GojuonFragmentPresenter {
 
         void initGojuonFragment(int category);
 
+        void unsubscribe();
+
     }
 
     public interface GojuonMemoryFragmentPresenter {
 
         void initGojuonMemoryFragment(int category);
+
+        void unsubscribe();
 
     }
 
@@ -128,6 +142,8 @@ public abstract class BasePresenter<T> {
         void reloadData(String mode);
 
         void onItemClick(PixivIllustBean bean);
+
+        void unsubscribe();
     }
 
     public interface MemoryFragmentPresenter {

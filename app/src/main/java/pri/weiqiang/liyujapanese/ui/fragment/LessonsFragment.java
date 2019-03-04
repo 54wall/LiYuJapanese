@@ -191,4 +191,12 @@ public class LessonsFragment extends BaseFragment implements BaseView.LessonsFra
         layoutManager.scrollToPositionWithOffset(sum, 0);
         leftClickType = true;
     }
+
+    @Override
+    public void onDestroy() {
+        Log.e(TAG, "onDestroy:presenter.unsubscribe();");
+        super.onDestroy();
+        // 将所有的 observer 取消订阅
+        presenter.unsubscribe();
+    }
 }

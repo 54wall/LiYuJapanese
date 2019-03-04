@@ -1,7 +1,5 @@
 package pri.weiqiang.liyujapanese.mvp.model;
 
-import android.util.Log;
-
 import java.util.List;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -29,6 +27,8 @@ public interface BaseModel<T> {
     //Inspection info:Some methods have no side effects, an calling them without doing something without the result is suspicious.  Issue id: CheckResult
     CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
+    void unsubscribe();
+
     List<T> getData();
 
     interface MainActivityModel {
@@ -41,19 +41,19 @@ public interface BaseModel<T> {
     interface GojuonMemoryTabFragmentModel extends BaseModel<GojuonTab> {
     }
 
-    interface GojuonFragmentModel {
+    interface GojuonFragmentModel extends BaseModel<GojuonFragmentModel> {
         void getData(int category, Consumer<List<GojuonItem>> consumer);
     }
 
-    interface GojuonMemoryFragmentModel {
+    interface GojuonMemoryFragmentModel extends BaseModel<GojuonMemoryFragmentModel> {
         void getData(int category, Consumer<List<GojuonMemory>> consumer);
     }
 
-    interface WordsFragmentModel {
+    interface WordsFragmentModel extends BaseModel<WordsFragmentModel> {
         void getData(Consumer<List<Word>> consumer, String lesson);
     }
 
-    interface ZhihuFragmentModel {
+    interface ZhihuFragmentModel extends BaseModel<ZhihuFragmentModel> {
         void getLatestDaily(Consumer<LatestDailyEntity> consumer, Consumer<Throwable> throwable);
 
         void getBeforeDaily(Consumer<BeforeDailyEntity> consumer, Consumer<Throwable> throwable, String date);
@@ -63,22 +63,20 @@ public interface BaseModel<T> {
         void getContent(Consumer<StoryContentEntity> consumer, Consumer<Throwable> throwable, int id);
     }
 
-    interface FavWordsFragmentModel {
+    interface FavWordsFragmentModel extends BaseModel<FavWordsFragmentModel> {
         void getData(Consumer<List<Word>> consumer, Consumer<Throwable> throwable, final String lessonId);
 
     }
 
-    interface FavLessonFragmentModel {
+    interface FavLessonFragmentModel extends BaseModel<FavLessonFragmentModel> {
         void getData(Consumer<List<LessonFav>> consumer, Consumer<Throwable> throwable);
-        void unsubscribe();
-
     }
 
-    interface NewsAPIFragmentModel {
+    interface NewsAPIFragmentModel extends BaseModel<NewsAPIFragmentModel> {
         void getHeadlinesByCountry(Consumer<NewsResponse> consumer, Consumer<Throwable> throwable, String country, String from, String to, String category, String pageSize, String apiKey);
     }
 
-    interface LessonsFragmentModel {
+    interface LessonsFragmentModel extends BaseModel<LessonsFragmentModel> {
         void getData(Consumer<List<Book>> consumer);
     }
 
@@ -92,7 +90,7 @@ public interface BaseModel<T> {
 
     }
 
-    interface PixivIllustFragmentModel {
+    interface PixivIllustFragmentModel extends BaseModel<PixivIllustFragmentModel> {
 
         void getIllusts(String mode, Consumer<List<PixivIllustBean>> consumer);
 

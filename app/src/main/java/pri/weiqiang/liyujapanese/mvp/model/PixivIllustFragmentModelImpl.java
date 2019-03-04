@@ -1,5 +1,7 @@
 package pri.weiqiang.liyujapanese.mvp.model;
 
+import android.util.Log;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,6 +15,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
@@ -27,8 +30,8 @@ import pri.weiqiang.liyujapanese.utils.ResourceUtils;
 
 public class PixivIllustFragmentModelImpl implements BaseModel.PixivIllustFragmentModel {
 
-
     PixivService.IllustService service;
+    private String TAG = PixivIllustFragmentModel.class.getSimpleName();
 
     public PixivIllustFragmentModelImpl() {
         service = new PixivIllustServiceImpl();
@@ -92,7 +95,7 @@ public class PixivIllustFragmentModelImpl implements BaseModel.PixivIllustFragme
     @Override
     public void getIllusts(final String mode, Consumer<List<PixivIllustBean>> consumer) {
 
-        Observable.create(new ObservableOnSubscribe<List<PixivIllustBean>>() {
+        Disposable disposable = Observable.create(new ObservableOnSubscribe<List<PixivIllustBean>>() {
             @Override
             public void subscribe(final ObservableEmitter<List<PixivIllustBean>> emitter) throws Exception {
                 service.getIllusts(mode, new Consumer<ResponseBody>() {
@@ -112,6 +115,7 @@ public class PixivIllustFragmentModelImpl implements BaseModel.PixivIllustFragme
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(consumer);
+        mCompositeDisposable.add(disposable);
     }
 
     @Override
@@ -124,4 +128,14 @@ public class PixivIllustFragmentModelImpl implements BaseModel.PixivIllustFragme
     }
 
 
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscrible");
+        mCompositeDisposable.clear();
+    }
+
+    @Override
+    public List<PixivIllustFragmentModel> getData() {
+        return null;
+    }
 }

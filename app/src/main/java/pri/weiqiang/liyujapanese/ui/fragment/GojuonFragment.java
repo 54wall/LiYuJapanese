@@ -126,4 +126,12 @@ public class GojuonFragment extends BaseFragment implements BaseView.GojuonFragm
         }
 
     }
+
+    @Override
+    public void onDestroy() {
+        Log.e(TAG, "onDestroy:presenter.unsubscribe();");
+        super.onDestroy();
+        // 将所有的 observer 取消订阅
+        presenter.unsubscribe();
+    }
 }

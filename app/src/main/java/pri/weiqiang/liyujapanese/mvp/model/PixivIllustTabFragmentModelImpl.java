@@ -12,6 +12,11 @@ import pri.weiqiang.liyujapanese.utils.ResourceUtils;
 public class PixivIllustTabFragmentModelImpl implements BaseModel.PixivIllustTabFragmentModel {
 
     @Override
+    public void unsubscribe() {
+
+    }
+
+    @Override
     public List<PixivIllustTab> getData() {
 
         List<PixivIllustTab> data = new ArrayList<>();

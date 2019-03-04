@@ -16,8 +16,6 @@ import pri.weiqiang.liyujapanese.comparator.LessonFavComporator;
 import pri.weiqiang.liyujapanese.manager.DBManager;
 import pri.weiqiang.liyujapanese.mvp.bean.LessonFav;
 
-import static pri.weiqiang.liyujapanese.mvp.model.BaseModel.mCompositeDisposable;
-
 
 public class FavLessonFragmentModelImpl implements BaseModel.FavLessonFragmentModel {
 
@@ -45,14 +43,19 @@ public class FavLessonFragmentModelImpl implements BaseModel.FavLessonFragmentMo
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(consumer, throwable);
-        Log.e(TAG,"mCompositeDisposable.add(disposable)");
+        Log.e(TAG, "mCompositeDisposable.add(unsubscribe)");
         mCompositeDisposable.add(disposable);
     }
 
     @Override
     public void unsubscribe() {
-        Log.e(TAG,"unsubscribe()");
+        Log.e(TAG, "unsubscribe()");
         mCompositeDisposable.clear();
+    }
+
+    @Override
+    public List<FavLessonFragmentModel> getData() {
+        return null;
     }
 
 }

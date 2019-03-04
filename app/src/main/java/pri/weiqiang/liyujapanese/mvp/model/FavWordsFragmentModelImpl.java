@@ -8,6 +8,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import pri.weiqiang.liyujapanese.manager.DBManager;
@@ -20,7 +21,7 @@ public class FavWordsFragmentModelImpl implements BaseModel.FavWordsFragmentMode
 
     @Override
     public void getData(Consumer<List<Word>> consumer, Consumer<Throwable> throwable, final String lessonId) {
-        Observable.create(new ObservableOnSubscribe<List<Word>>() {
+        Disposable disposable = Observable.create(new ObservableOnSubscribe<List<Word>>() {
             @Override
             public void subscribe(ObservableEmitter<List<Word>> emitter) throws Exception {
                 List<Word> list;
@@ -36,5 +37,17 @@ public class FavWordsFragmentModelImpl implements BaseModel.FavWordsFragmentMode
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(consumer, throwable);
+        mCompositeDisposable.add(disposable);
+    }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG, "unsubscribe()");
+        mCompositeDisposable.clear();
+    }
+
+    @Override
+    public List<FavWordsFragmentModel> getData() {
+        return null;
     }
 }

@@ -2,6 +2,7 @@ package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -26,17 +27,15 @@ import pri.weiqiang.liyujapanese.ui.adapter.PixivIllustRecyclerAdapter;
 
 public class PixivIllustFragment extends BaseFragment implements BaseView.PixivIllustFragmentView {
 
-
     @BindView(R.id.layout_root)
     LinearLayout mRootLayout;
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
     @BindView(R.id.refresh_layout)
     SwipeRefreshLayout mRefreshLayout;
-
     String mode_illust;
-
     BasePresenter.PixivIllustFragmentPresenter presenter;
+    private String TAG = PixivIllustFragment.class.getSimpleName();
 
     public static PixivIllustFragment newInstance(String mode) {
 
@@ -70,7 +69,7 @@ public class PixivIllustFragment extends BaseFragment implements BaseView.PixivI
     private void initRecyclerView() {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
 
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
@@ -149,4 +148,11 @@ public class PixivIllustFragment extends BaseFragment implements BaseView.PixivI
 
     }
 
+    @Override
+    public void onDestroy() {
+        Log.e(TAG, "onDestroy:presenter.unsubscribe();");
+        super.onDestroy();
+        // 将所有的 observer 取消订阅
+        presenter.unsubscribe();
+    }
 }
