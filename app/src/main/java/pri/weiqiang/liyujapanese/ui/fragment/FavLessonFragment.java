@@ -150,4 +150,12 @@ public class FavLessonFragment extends BaseFragment implements BaseView.FavLesso
     public void setRecyclerView() {
         Log.e(TAG, "setRecyclerView!!!!!!");
     }
+
+    @Override
+    public void onDestroy() {
+        Log.e(TAG,"onDestroy:presenter.disposable();");
+        super.onDestroy();
+        // 将所有的 observer 取消订阅
+        presenter.disposable();
+    }
 }

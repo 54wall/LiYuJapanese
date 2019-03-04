@@ -9,20 +9,25 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import pri.weiqiang.liyujapanese.comparator.LessonFavComporator;
 import pri.weiqiang.liyujapanese.manager.DBManager;
 import pri.weiqiang.liyujapanese.mvp.bean.LessonFav;
 
+import static pri.weiqiang.liyujapanese.mvp.model.BaseModel.mCompositeDisposable;
+
 
 public class FavLessonFragmentModelImpl implements BaseModel.FavLessonFragmentModel {
 
     private String TAG = FavLessonFragmentModelImpl.class.getSimpleName();
+    private Disposable disposable;
 
     @Override
     public void getData(Consumer<List<LessonFav>> consumer, Consumer<Throwable> throwable) {
-        Observable.create(new ObservableOnSubscribe<List<LessonFav>>() {
+
+        disposable = Observable.create(new ObservableOnSubscribe<List<LessonFav>>() {
             @Override
             public void subscribe(ObservableEmitter<List<LessonFav>> emitter) throws Exception {
                 List<LessonFav> list;
@@ -40,5 +45,14 @@ public class FavLessonFragmentModelImpl implements BaseModel.FavLessonFragmentMo
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(consumer, throwable);
+        Log.e(TAG,"mCompositeDisposable.add(disposable)");
+        mCompositeDisposable.add(disposable);
     }
+
+    @Override
+    public void unsubscribe() {
+        Log.e(TAG,"unsubscribe()");
+        mCompositeDisposable.clear();
+    }
+
 }

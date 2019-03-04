@@ -1,7 +1,10 @@
 package pri.weiqiang.liyujapanese.mvp.model;
 
+import android.util.Log;
+
 import java.util.List;
 
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import pri.weiqiang.liyujapanese.mvp.bean.BaiduTranslateBean;
 import pri.weiqiang.liyujapanese.mvp.bean.Book;
@@ -21,8 +24,12 @@ import pri.weiqiang.liyujapanese.mvp.bean.zhihu.StoryContentEntity;
 
 public interface BaseModel<T> {
 
-    List<T> getData();
 
+    //增加对RxJava2的生命周期管理，避免The result of subscribe is not used less... (Ctrl+F1)
+    //Inspection info:Some methods have no side effects, an calling them without doing something without the result is suspicious.  Issue id: CheckResult
+    CompositeDisposable mCompositeDisposable = new CompositeDisposable();
+
+    List<T> getData();
 
     interface MainActivityModel {
     }
@@ -63,6 +70,7 @@ public interface BaseModel<T> {
 
     interface FavLessonFragmentModel {
         void getData(Consumer<List<LessonFav>> consumer, Consumer<Throwable> throwable);
+        void unsubscribe();
 
     }
 

@@ -82,6 +82,8 @@ public abstract class BasePresenter<T> {
 
         void initFavLessonFragment();
 
+        void disposable();
+
     }
 
     public interface LessonsFragmentPresenter {

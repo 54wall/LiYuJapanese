@@ -41,7 +41,6 @@ public class ZhihuFragmentPresenterImpl extends BasePresenter<BaseView.ZhihuFrag
                 Log.e(TAG, "getLatestDaily-Throwable:" + throwable.toString());
             }
         });
-
     }
 
     @Override

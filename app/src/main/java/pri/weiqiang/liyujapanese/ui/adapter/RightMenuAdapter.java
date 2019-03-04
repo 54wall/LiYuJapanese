@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.mvp.bean.Book;
@@ -46,9 +47,10 @@ public class RightMenuAdapter extends RecyclerView.Adapter {
         return TYPE_CONTENT;
     }
 
+    @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.e(TAG, "onCreateViewHolder");
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        Log.e(TAG, "onCreateViewHolder");
         if (viewType == TYPE_HEAD) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.right_menu_header, parent, false);
             HeadViewHolder viewHolder = new HeadViewHolder(view);
@@ -61,8 +63,8 @@ public class RightMenuAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        Log.e(TAG, "onBindViewHolder");
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
+//        Log.e(TAG, "onBindViewHolder");
         if (getItemViewType(position) == TYPE_HEAD) {
             HeadViewHolder headHolder = (HeadViewHolder) holder;
             if (headHolder != null) {
@@ -94,7 +96,7 @@ public class RightMenuAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public Book getMenuByPosition(int position) {
+    private Book getMenuByPosition(int position) {
         int sum = 0;
         for (Book menu : mBookList) {
             if (position == sum) {
@@ -147,7 +149,7 @@ public class RightMenuAdapter extends RecyclerView.Adapter {
         private LinearLayout mLlRightMenuHead;
         private TextView mTvBook;
 
-        public HeadViewHolder(View itemView) {
+        private HeadViewHolder(View itemView) {
             super(itemView);
             mLlRightMenuHead = itemView.findViewById(R.id.ll_right_menu_head);
             mTvBook = itemView.findViewById(R.id.tv_book);
@@ -159,7 +161,7 @@ public class RightMenuAdapter extends RecyclerView.Adapter {
         private TextView mTvLesson;
         private LinearLayout mLlRightItem;
 
-        public ContentViewHolder(View itemView) {
+        private ContentViewHolder(View itemView) {
             super(itemView);
             mTvLesson = itemView.findViewById(R.id.tv_lesson);
             mLlRightItem = itemView.findViewById(R.id.ll_right_item);

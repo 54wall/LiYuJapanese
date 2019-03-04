@@ -44,7 +44,7 @@ public class LeftMenuAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.e(TAG, "onCreateViewHolder");
+//        Log.e(TAG, "onCreateViewHolder");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.left_menu_item, parent, false);
         LeftMenuViewHolder viewHolder = new LeftMenuViewHolder(view);
         return viewHolder;
@@ -52,7 +52,7 @@ public class LeftMenuAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Log.e(TAG, "onBindViewHolder");
+//        Log.e(TAG, "onBindViewHolder");
         Book mBook = mBookList.get(position);
         LeftMenuViewHolder viewHolder = (LeftMenuViewHolder) holder;
         viewHolder.mTvName.setText(mBook.getName());
