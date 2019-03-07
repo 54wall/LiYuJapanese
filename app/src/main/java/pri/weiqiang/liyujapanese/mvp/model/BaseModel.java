@@ -34,6 +34,8 @@ public interface BaseModel<T> {
     interface MainActivityModel {
     }
 
+    interface demo extends BaseModel<String> {
+    }
 
     interface GojuonTabFragmentModel extends BaseModel<GojuonTab> {
     }
