@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'walle'
 def releaseTime() {
     return new Date().format("yyyyMMdd_hhmmss", TimeZone.getTimeZone("GMT+8"))
 }
@@ -62,7 +63,8 @@ android {
         }
 
     }
-
+/*使用walle后不能再指定productFlavors：报错如下：Task 'assembleReleaseChannels' not found in root project */
+/*
     applicationVariants.all { variant ->
         variant.outputs.all {
             outputFileName = "${releaseTime()}_LiYu_${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
@@ -76,7 +78,7 @@ android {
             flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
         }
 
-    }
+    }*/
 
     compileOptions {
 
@@ -84,6 +86,15 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
 
     }
+}
+
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel")
 }
 
 dependencies {
@@ -116,6 +127,7 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     implementation 'com.zhy:base-rvadapter:3.0.3'
     implementation 'net.opacapp:multiline-collapsingtoolbar:27.1.1'
+    implementation 'com.meituan.android.walle:library:1.1.6'
     implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
 }
 
