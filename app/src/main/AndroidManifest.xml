@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="pri.weiqiang.liyujapanese">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,13 +9,17 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
+    <!--Manifest merger failed : Attribute application@label value=(@string/app_name_ceshi) from AndroidManifest.xml:18:9-36-->
+    <!--is also present at [com.github.pwcong:RadioButtonView:v1.0.3] AndroidManifest.xml:13:9-41 value=(@string/app_name).-->
+    <!--Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:12:5-78:19 to override.-->
     <application
+        tools:replace="android:label"
         android:name=".MyApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:label="${APP_NAME}"
         android:theme="@style/AppTheme.NoActionBar">
 
         <activity

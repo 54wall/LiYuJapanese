@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_ceshi">测试版LiYu</string>
+    <string name="app_name_shengchan">生产版LiYu</string>
     <string name="menu_name">菜单</string>
     <string name="dish_name">菜名</string>
 
