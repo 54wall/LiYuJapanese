@@ -20,6 +20,7 @@ import io.reactivex.schedulers.Schedulers;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.manager.DBManager;
 import pri.weiqiang.liyujapanese.manager.GifManager;
+import pri.weiqiang.liyujapanese.manager.SoundPoolManager;
 import pri.weiqiang.liyujapanese.utils.PermissionHelper;
 import pri.weiqiang.liyujapanese.utils.ResourceUtils;
 
@@ -93,7 +94,7 @@ public class SplashActivity extends BaseActivity {
                 emitter.onNext(ResourceUtils.getString(SplashActivity.this, R.string.loading_data));
                 DBManager.getInstance().init();
                 GifManager.getInstance().init();
-//                SoundPoolManager.getInstance().init();//SoundPoolManager.init考虑后续变为异步处理进入五十音图在启动
+                SoundPoolManager.getInstance().init();//SoundPoolManager.init考虑后续变为异步处理进入五十音图在启动
                 emitter.onNext(ResourceUtils.getString(SplashActivity.this, R.string.loading_data_success));
                 emitter.onComplete();
                 //添加有米广告需要屏蔽下两行代码

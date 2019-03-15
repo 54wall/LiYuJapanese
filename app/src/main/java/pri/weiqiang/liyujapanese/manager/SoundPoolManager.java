@@ -7,6 +7,9 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import pri.weiqiang.liyujapanese.MyApplication;
 import pri.weiqiang.liyujapanese.R;
@@ -150,13 +153,17 @@ public class SoundPoolManager {
     }
 
     public void init() {
-        int i = 0;
+        //使用线程池在开始界面缓存全部五十音图
+        final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 5,
+                1, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(100));
         for (GojuonSound sound : sounds) {
-            Log.e(TAG, "GojuonSound init i:" + i);
-            i++;
-            int id = soundPool.load(MyApplication.getInstance(), sound.getResId(), 1);
-            soundsIdMap.put(sound.getRome(), id);
-
+            Runnable runnable = () -> {
+                int id = soundPool.load(MyApplication.getInstance(), sound.getResId(), 1);
+                soundsIdMap.put(sound.getRome(), id);
+                Log.e(TAG, "put finished:" + sound.getRome());
+            };
+            threadPoolExecutor.execute(runnable);
         }
         Log.e(TAG, "GojuonSound init finish.");
 
