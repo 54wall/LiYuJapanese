@@ -7,30 +7,30 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class JPDatabase extends SQLiteAssetHelper {
 
-    public static final String DB_NAME = "vocab.db";
+    public static final String DB_NAME = "android.db";//"vocab.db"
     public static final String DB_TABLE_GOJUON = "gojuon";
     public static final String DB_TABLE_WORDS = "words";
     public static final String DB_TABLE_LESSONS = "lessons";
     public static final String DB_TABLE_FAV = "fav";
-    public static final int DB_VERSON = 1;
-    private static JPDatabase mInstance = null;
+    private static final int DB_VERSON = 1;
+    private volatile static JPDatabase mInstance = null;
 
     /*使用单例模式避免 以下错误A SQLiteConnection object for database '/data/data/.../databases/....db' was leaked!
     Please fix your application to end transactions in progress properly and to close the database when it is no longer needed*/
-    public JPDatabase(Context context) {
+    private JPDatabase(Context context) {
 
         super(context, DB_NAME, null, DB_VERSON);
 
     }
 
-
-    public synchronized static JPDatabase getInstance(Context context) {
+    public static JPDatabase getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new JPDatabase(context);
+            synchronized (JPDatabase.class) {
+                if (mInstance == null) {
+                    mInstance = new JPDatabase(context);
+                }
+            }
         }
         return mInstance;
     }
-
-    ;
-
 }

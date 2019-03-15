@@ -48,11 +48,9 @@ public class AboutActivity extends BaseActivity {
 
     private void initButton() {
 
-        mBtnAuthor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActivityUtils.openUrl(Constants.URL_AUTHOR);
-            }
+        mBtnAuthor.setOnClickListener(v -> ActivityUtils.openUrl(Constants.URL_AUTHOR));
+        mBtnAuthor.setOnClickListener(v -> {
+
         });
 
     }

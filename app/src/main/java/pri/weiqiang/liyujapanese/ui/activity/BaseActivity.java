@@ -9,11 +9,14 @@ import com.umeng.analytics.MobclickAgent;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import pri.weiqiang.liyujapanese.manager.ActivityManager;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
 
+    CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +35,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
+    public void addDisposable(Disposable disposable) {
+        mCompositeDisposable.add(disposable);
+    }
+
     protected abstract int getViewId();
 
     protected abstract void initVariable(@Nullable Bundle savedInstanceState);
@@ -41,6 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mCompositeDisposable.clear();
         ActivityManager.getInstance().unregister(this);
 
     }

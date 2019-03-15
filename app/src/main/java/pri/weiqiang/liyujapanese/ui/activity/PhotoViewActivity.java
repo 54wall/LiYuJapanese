@@ -20,6 +20,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import pri.weiqiang.liyujapanese.R;
@@ -60,7 +61,7 @@ public class PhotoViewActivity extends BaseActivity {
 
             public boolean onLongClick(View v) {
 
-                Observable.create(new ObservableOnSubscribe<Integer>() {
+                Disposable disposable = Observable.create(new ObservableOnSubscribe<Integer>() {
                     @Override
                     public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
                         try {
@@ -92,6 +93,7 @@ public class PhotoViewActivity extends BaseActivity {
                                 showSnackBar(mRootLayout, integer);
                             }
                         });
+                addDisposable(disposable);
                 return false;
             }
         });

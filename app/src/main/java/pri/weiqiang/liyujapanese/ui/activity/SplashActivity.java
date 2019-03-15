@@ -14,6 +14,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import pri.weiqiang.liyujapanese.R;
@@ -72,11 +73,6 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         mPermissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -90,7 +86,7 @@ public class SplashActivity extends BaseActivity {
 
     private void initData() {
         //预加载数据库，音频与GIF资源（GIF资源觉得可以放在后边）
-        Observable.create(new ObservableOnSubscribe<String>() {
+        Disposable disposable = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
 
@@ -114,6 +110,7 @@ public class SplashActivity extends BaseActivity {
 
                     }
                 });
+        addDisposable(disposable);
 
     }
 }

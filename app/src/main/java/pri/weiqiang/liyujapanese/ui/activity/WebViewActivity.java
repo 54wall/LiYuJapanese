@@ -99,7 +99,6 @@ public class WebViewActivity extends AppCompatActivity {
         webView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
                 if (event.getPointerCount() > 1) {
                     //Multi touch detected
                     return true;

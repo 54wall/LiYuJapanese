@@ -156,7 +156,9 @@ public class DBManager {
         if (mBookList == null) {
             Log.e(TAG, "mBookList = null");
             SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_LESSONS, null);
+//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_LESSONS, null);
+            Cursor cursor = db.query(JPDatabase.DB_TABLE_LESSONS, null, null, null, null, null, null);
+
             mBookList = new ArrayList<>();
             mLessonList = new ArrayList<>();
             Book bookItem;
@@ -241,7 +243,9 @@ public class DBManager {
         //收藏这个表，因为经常更新，所以即使mFavList不为null也不能直接使用
         if (isTableExist(JPDatabase.DB_TABLE_FAV)) {
             SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
+//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
+            Cursor cursor = db.query(JPDatabase.DB_TABLE_FAV, null, null, null, null, null, null);
+
             mFavList = new ArrayList<>();
             Word item;
             while (cursor.moveToNext()) {
@@ -270,7 +274,9 @@ public class DBManager {
         //收藏这个表，因为经常更新，所以即使mFavList不为null也不能直接使用
         if (isTableExist(JPDatabase.DB_TABLE_FAV)) {
             SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
+//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
+            Cursor cursor = db.query(JPDatabase.DB_TABLE_FAV, null, null, null, null, null, null);
+
             mFavList = new ArrayList<>();
             Word item;
             while (cursor.moveToNext()) {
@@ -300,7 +306,9 @@ public class DBManager {
         //收藏这个表，因为经常更新，所以即使mFavList不为null也不能直接使用
         if (isTableExist(JPDatabase.DB_TABLE_FAV)) {
             SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
+//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
+            Cursor cursor = db.query(JPDatabase.DB_TABLE_FAV, null, null, null, null, null, null);
+
             mLessonFavMap = new HashMap<>();
             mLessonFavList = new ArrayList<>();
             while (cursor.moveToNext()) {
@@ -366,7 +374,9 @@ public class DBManager {
 
         if (query == null) {
             SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
+//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
+            Cursor cursor = db.query(JPDatabase.DB_TABLE_GOJUON, null, null, null, null, null, null);
+
             query = new ArrayList<>();
             GojuonItem item;
             while (cursor.moveToNext()) {
@@ -395,7 +405,9 @@ public class DBManager {
 
         if (gojuonMemoryList == null) {
             SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
+//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
+            Cursor cursor = db.query(JPDatabase.DB_TABLE_GOJUON, null, null, null, null, null, null);
+
             gojuonMemoryList = new ArrayList<>();
             GojuonMemory item;
             while (cursor.moveToNext()) {
@@ -421,7 +433,9 @@ public class DBManager {
 
         if (gojuonMemoryChengyu == null) {
             SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
+//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
+            Cursor cursor = db.query(JPDatabase.DB_TABLE_GOJUON, null, null, null, null, null, null);
+
             gojuonMemoryChengyu = new ArrayList<>();
             GojuonMemory item;
             while (cursor.moveToNext()) {
@@ -579,6 +593,7 @@ public class DBManager {
         try {
             String sql = "select count(*) as c from Sqlite_master  where type ='table' and name ='" + tableName.trim() + "' ";
             cursor = db.rawQuery(sql, null);
+
             if (cursor.moveToNext()) {
                 int count = cursor.getInt(0);
                 if (count > 0) {
