@@ -20,7 +20,7 @@ import pri.weiqiang.liyujapanese.MyApplication;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.comparator.GojuonItemComporator;
 import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.db.JPDatabase;
+import pri.weiqiang.liyujapanese.db.DatabaseHelper;
 import pri.weiqiang.liyujapanese.mvp.bean.Book;
 import pri.weiqiang.liyujapanese.mvp.bean.GojuonItem;
 import pri.weiqiang.liyujapanese.mvp.bean.GojuonMemory;
@@ -33,7 +33,7 @@ public class DBManager {
 
     private volatile static DBManager instance = null;
     public final String CREATE_FAV = "create table"
-            + " " + JPDatabase.DB_TABLE_FAV
+            + " " + DatabaseHelper.DB_TABLE_FAV
             + "("
             + "_id integer primary key autoincrement, "
             + "book_id varchar, "
@@ -102,8 +102,8 @@ public class DBManager {
 
     public void copyDBToSDcrad() {
 
-        String oldPath = "data/data/pri.weiqiang.liyujapanese/databases/" + JPDatabase.DB_NAME;
-        String newPath = Environment.getExternalStorageDirectory() + File.separator + JPDatabase.DB_NAME;
+        String oldPath = "data/data/pri.weiqiang.liyujapanese/databases/" + DatabaseHelper.DB_NAME;
+        String newPath = Environment.getExternalStorageDirectory() + File.separator + DatabaseHelper.DB_NAME;
 
         copyFile(oldPath, newPath);
     }
@@ -155,9 +155,9 @@ public class DBManager {
         //仅第一次调用数据库时填充mBookList
         if (mBookList == null) {
             Log.e(TAG, "mBookList = null");
-            SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_LESSONS, null);
-            Cursor cursor = db.query(JPDatabase.DB_TABLE_LESSONS, null, null, null, null, null, null);
+            SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
+//            Cursor cursor = db.rawQuery("select * from " + DatabaseHelper.DB_TABLE_LESSONS, null);
+            Cursor cursor = db.query(DatabaseHelper.DB_TABLE_LESSONS, null, null, null, null, null, null);
 
             mBookList = new ArrayList<>();
             mLessonList = new ArrayList<>();
@@ -195,10 +195,10 @@ public class DBManager {
 
     public synchronized List<Word> queryWord(String lesson) {
         Log.e(TAG, "queryWord lesson:" + lesson);
-        SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
+        SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
         String selection = "lesson_id=?";
         String[] selectionArgs = new String[]{lesson};
-        Cursor cursor = db.query(JPDatabase.DB_TABLE_WORDS,
+        Cursor cursor = db.query(DatabaseHelper.DB_TABLE_WORDS,
                 null, selection, selectionArgs, null, null,
                 null);
         mWordList = new ArrayList<>();
@@ -225,14 +225,14 @@ public class DBManager {
 
     public void updateFav(Word word) {
         Log.e(TAG, "updateFav fav:" + word.getFav());
-        SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getWritableDatabase();
+        SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getWritableDatabase();
         ContentValues values = new ContentValues();
         if (word.getFav() == 0) {
             values.put("fav", 1);
         } else {
             values.put("fav", 0);
         }
-        db.update(JPDatabase.DB_TABLE_WORDS, values, "_id = ?", new String[]{String.valueOf(word.getId())});
+        db.update(DatabaseHelper.DB_TABLE_WORDS, values, "_id = ?", new String[]{String.valueOf(word.getId())});
         db.close();
         Log.e(TAG, "updateFav fav:" + word.getFav());
 
@@ -241,10 +241,10 @@ public class DBManager {
     public synchronized List<Word> getAllFav() {
         Log.e(TAG, "getAllFav!!!!");
         //收藏这个表，因为经常更新，所以即使mFavList不为null也不能直接使用
-        if (isTableExist(JPDatabase.DB_TABLE_FAV)) {
-            SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
-            Cursor cursor = db.query(JPDatabase.DB_TABLE_FAV, null, null, null, null, null, null);
+        if (isTableExist(DatabaseHelper.DB_TABLE_FAV)) {
+            SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
+//            Cursor cursor = db.rawQuery("select * from " + DatabaseHelper.DB_TABLE_FAV, null);
+            Cursor cursor = db.query(DatabaseHelper.DB_TABLE_FAV, null, null, null, null, null, null);
 
             mFavList = new ArrayList<>();
             Word item;
@@ -272,10 +272,10 @@ public class DBManager {
     public synchronized List<Word> getFav(String lessonId) {
         Log.e(TAG, "getAllFav!!!!");
         //收藏这个表，因为经常更新，所以即使mFavList不为null也不能直接使用
-        if (isTableExist(JPDatabase.DB_TABLE_FAV)) {
-            SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
-            Cursor cursor = db.query(JPDatabase.DB_TABLE_FAV, null, null, null, null, null, null);
+        if (isTableExist(DatabaseHelper.DB_TABLE_FAV)) {
+            SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
+//            Cursor cursor = db.rawQuery("select * from " + DatabaseHelper.DB_TABLE_FAV, null);
+            Cursor cursor = db.query(DatabaseHelper.DB_TABLE_FAV, null, null, null, null, null, null);
 
             mFavList = new ArrayList<>();
             Word item;
@@ -304,10 +304,10 @@ public class DBManager {
     public synchronized List<LessonFav> getFavLesson() {
         Log.e(TAG, "getFavLesson!!!!");
         //收藏这个表，因为经常更新，所以即使mFavList不为null也不能直接使用
-        if (isTableExist(JPDatabase.DB_TABLE_FAV)) {
-            SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_FAV, null);
-            Cursor cursor = db.query(JPDatabase.DB_TABLE_FAV, null, null, null, null, null, null);
+        if (isTableExist(DatabaseHelper.DB_TABLE_FAV)) {
+            SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
+//            Cursor cursor = db.rawQuery("select * from " + DatabaseHelper.DB_TABLE_FAV, null);
+            Cursor cursor = db.query(DatabaseHelper.DB_TABLE_FAV, null, null, null, null, null, null);
 
             mLessonFavMap = new HashMap<>();
             mLessonFavList = new ArrayList<>();
@@ -335,10 +335,10 @@ public class DBManager {
 
     public synchronized void insertFav(Word word) {
         Log.e(TAG, "insertFav fav:" + word.getFav());
-        if (!isTableExist(JPDatabase.DB_TABLE_FAV)) {
+        if (!isTableExist(DatabaseHelper.DB_TABLE_FAV)) {
             createFav();
         }
-        SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getWritableDatabase();
+        SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getWritableDatabase();
         ContentValues values = new ContentValues();
         // 开始组装第一条数据
         values.put("_id", word.getId());
@@ -349,23 +349,23 @@ public class DBManager {
         values.put("translation", word.getTranslation());
         values.put("fav", word.getFav());
         values.put("cache", word.getCache());
-        db.insert(JPDatabase.DB_TABLE_FAV, null, values); // 插入第一条数据
+        db.insert(DatabaseHelper.DB_TABLE_FAV, null, values); // 插入第一条数据
         db.close();
     }
 
     public synchronized void delFav(Word word) {
         Log.e(TAG, "delFav fav:" + word.getFav());
-        if (!isTableExist(JPDatabase.DB_TABLE_FAV)) {
+        if (!isTableExist(DatabaseHelper.DB_TABLE_FAV)) {
             createFav();
         }
-        SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getWritableDatabase();
-        db.delete(JPDatabase.DB_TABLE_FAV, "_id = ?", new String[]{String.valueOf(word.getId())});
+        SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getWritableDatabase();
+        db.delete(DatabaseHelper.DB_TABLE_FAV, "_id = ?", new String[]{String.valueOf(word.getId())});
         db.close();
     }
 
     public synchronized void createFav() {
         Log.e(TAG, "createFav");
-        SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getWritableDatabase();
+        SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getWritableDatabase();
         db.execSQL(CREATE_FAV);
         db.close();
     }
@@ -373,9 +373,9 @@ public class DBManager {
     public synchronized List<GojuonItem> query() {
 
         if (query == null) {
-            SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
-            Cursor cursor = db.query(JPDatabase.DB_TABLE_GOJUON, null, null, null, null, null, null);
+            SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
+//            Cursor cursor = db.rawQuery("select * from " + DatabaseHelper.DB_TABLE_GOJUON, null);
+            Cursor cursor = db.query(DatabaseHelper.DB_TABLE_GOJUON, null, null, null, null, null, null);
 
             query = new ArrayList<>();
             GojuonItem item;
@@ -404,9 +404,9 @@ public class DBManager {
     public synchronized List<GojuonMemory> getGojuonMemory() {
 
         if (gojuonMemoryList == null) {
-            SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
-            Cursor cursor = db.query(JPDatabase.DB_TABLE_GOJUON, null, null, null, null, null, null);
+            SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
+//            Cursor cursor = db.rawQuery("select * from " + DatabaseHelper.DB_TABLE_GOJUON, null);
+            Cursor cursor = db.query(DatabaseHelper.DB_TABLE_GOJUON, null, null, null, null, null, null);
 
             gojuonMemoryList = new ArrayList<>();
             GojuonMemory item;
@@ -432,9 +432,9 @@ public class DBManager {
     public synchronized List<GojuonMemory> getGojuonChengyu() {
 
         if (gojuonMemoryChengyu == null) {
-            SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
-//            Cursor cursor = db.rawQuery("select * from " + JPDatabase.DB_TABLE_GOJUON, null);
-            Cursor cursor = db.query(JPDatabase.DB_TABLE_GOJUON, null, null, null, null, null, null);
+            SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
+//            Cursor cursor = db.rawQuery("select * from " + DatabaseHelper.DB_TABLE_GOJUON, null);
+            Cursor cursor = db.query(DatabaseHelper.DB_TABLE_GOJUON, null, null, null, null, null, null);
 
             gojuonMemoryChengyu = new ArrayList<>();
             GojuonMemory item;
@@ -587,7 +587,7 @@ public class DBManager {
         if (tableName == null) {
             return false;
         }
-        SQLiteDatabase db = JPDatabase.getInstance(MyApplication.getInstance()).getReadableDatabase();
+        SQLiteDatabase db = DatabaseHelper.getInstance(MyApplication.getInstance()).getReadableDatabase();
         Cursor cursor = null;
 
         try {
