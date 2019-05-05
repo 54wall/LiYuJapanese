@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.Date;
 
 import pri.weiqiang.liyujapanese.mvp.bean.newsapi.DisplaybleNews;
-import pri.weiqiang.liyujapanese.utils.DateUtils;
+import pri.weiqaing.common.utils.DateUtils;
 
 /**
  * Created by Administrator on 2017/1/4.

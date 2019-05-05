@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.concurrent.ConcurrentHashMap;
 
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonGif;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonGif;
 
 public class GifManager {
 

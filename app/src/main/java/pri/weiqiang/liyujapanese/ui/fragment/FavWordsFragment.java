@@ -4,29 +4,31 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.LayoutAnimationController;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.utils.LayoutAnimationHelper;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.Word;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.FavWordsFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.Word;
+import pri.weiqiang.liyujapanese.mvp.presenter.dic.FavWordsFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.dic.FavWordsFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.FavWordsRecyclerAdapter;
-import pri.weiqiang.liyujapanese.utils.LayoutAnimationHelper;
 
 /**
  * Created by weiqiang on 2018/3/25.
  */
 
-public class FavWordsFragment extends BaseFragment implements BaseView.FavWordsFragmentView {
+public class FavWordsFragment extends BaseFragment implements FavWordsFragmentView {
 
     private static final String TAG = FavWordsFragment.class.getSimpleName();
     @BindView(R.id.recycler_view)

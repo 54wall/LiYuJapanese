@@ -9,8 +9,8 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonMemory;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonMemory;
 
 public class GojuonMemoryRecyclerAdapter extends RecyclerView.Adapter<GojuonMemoryRecyclerAdapter.ViewHolder> {
 

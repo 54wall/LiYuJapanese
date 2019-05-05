@@ -11,9 +11,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import pri.weiqiang.liyujapanese.MyApplication;
+import pri.weiqaing.common.base.BaseApplication;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonSound;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonSound;
 
 public class SoundPoolManager {
 
@@ -159,13 +159,12 @@ public class SoundPoolManager {
                 new LinkedBlockingQueue<>(100));
         for (GojuonSound sound : sounds) {
             Runnable runnable = () -> {
-                int id = soundPool.load(MyApplication.getInstance(), sound.getResId(), 1);
+                int id = soundPool.load(BaseApplication.getInstance(), sound.getResId(), 1);
                 soundsIdMap.put(sound.getRome(), id);
-                Log.e(TAG, "put finished:" + sound.getRome());
             };
             threadPoolExecutor.execute(runnable);
         }
-        Log.e(TAG, "GojuonSound init finish.");
+        Log.e(TAG, "ThreadPoolExecutor GojuonSound init finish.");
 
 
     }
@@ -180,7 +179,7 @@ public class SoundPoolManager {
                 if (sounds.get(i).getRome().equals(rome))
                     break;
             }
-            final int soundID = soundPool.load(MyApplication.getInstance(), sounds.get(i).getResId(), 1);
+            final int soundID = soundPool.load(BaseApplication.getInstance(), sounds.get(i).getResId(), 1);
             soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
                 @Override
                 public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {

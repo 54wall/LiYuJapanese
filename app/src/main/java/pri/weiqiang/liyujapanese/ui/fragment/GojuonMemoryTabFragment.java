@@ -2,22 +2,24 @@ package pri.weiqiang.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
-import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
-import pri.weiqiang.liyujapanese.MyApplication;
+import pri.weiqaing.common.base.BaseApplication;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonTab;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.GojuonMemoryTabFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonTab;
+import pri.weiqiang.liyujapanese.mvp.presenter.gojuon.GojuonMemoryTabFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.gojuon.GojuonMemoryTabFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.GojuonMemoryTabPagerAdapter;
 
-public class GojuonMemoryTabFragment extends BaseFragment implements BaseView.GojuonMemoryTabFragmentView {
+public class GojuonMemoryTabFragment extends BaseFragment implements GojuonMemoryTabFragmentView {
 
 
     private static final String TAG = GojuonMemoryTabFragment.class.getSimpleName();
@@ -58,7 +60,7 @@ public class GojuonMemoryTabFragment extends BaseFragment implements BaseView.Go
 
             @Override
             public void onPageSelected(int position) {
-                MyApplication.CURRENT_ITEM = position;
+                BaseApplication.CURRENT_ITEM = position;
             }
 
             @Override

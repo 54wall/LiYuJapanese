@@ -29,7 +29,7 @@
         android:visibility="gone"
         app:layout_anchor="@+id/recycler_view"
         app:layout_anchorGravity="right|bottom"
-        app:layout_behavior="pri.weiqiang.liyujapanese.widget.behavior.FabBehavior"
+        app:layout_behavior="pri.weiqaing.common.widget.behavior.FabBehavior"
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

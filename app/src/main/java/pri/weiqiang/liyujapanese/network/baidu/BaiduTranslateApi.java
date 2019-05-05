@@ -1,7 +1,7 @@
 package pri.weiqiang.liyujapanese.network.baidu;
 
 import io.reactivex.Observable;
-import pri.weiqiang.liyujapanese.mvp.bean.BaiduTranslateBean;
+import pri.weiqiang.liyujapanese.mvp.bean.translation.BaiduTranslateBean;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 

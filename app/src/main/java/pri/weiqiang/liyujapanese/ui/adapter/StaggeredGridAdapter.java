@@ -13,7 +13,7 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.LessonFav;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.LessonFav;
 import pri.weiqiang.liyujapanese.ui.adapter.stagger.OnItemClickLitener;
 
 /**

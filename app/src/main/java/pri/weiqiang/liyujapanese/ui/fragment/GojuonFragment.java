@@ -3,27 +3,29 @@ package pri.weiqiang.liyujapanese.ui.fragment;
 import android.os.Bundle;
 import android.util.Log;
 
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
 import butterknife.BindView;
-import pri.weiqiang.liyujapanese.MyApplication;
+import pri.weiqaing.common.base.BaseApplication;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.utils.ResourceUtils;
+import pri.weiqaing.common.widget.dialog.ImageDialog;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
 import pri.weiqiang.liyujapanese.manager.GifManager;
 import pri.weiqiang.liyujapanese.manager.SoundPoolManager;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonGif;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonItem;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.GojuonFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonGif;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
+import pri.weiqiang.liyujapanese.mvp.presenter.gojuon.GojuonFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.gojuon.GojuonFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.GojuonRecyclerAdapter;
-import pri.weiqiang.liyujapanese.utils.ResourceUtils;
-import pri.weiqiang.liyujapanese.widget.dialog.ImageDialog;
 
-public class GojuonFragment extends BaseFragment implements BaseView.GojuonFragmentView {
+public class GojuonFragment extends BaseFragment implements GojuonFragmentView {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -81,7 +83,7 @@ public class GojuonFragment extends BaseFragment implements BaseView.GojuonFragm
                 Log.e(TAG, "onLongClick item:" + item.getRome() + ":" + item.getKatakana());
                 GojuonGif gif = GifManager.getInstance().getJPGif(item.getRome());
                 if (gif != null) {
-                    if (MyApplication.TYPE_MING == Constants.TYPE_HIRAGANA) {
+                    if (BaseApplication.TYPE_MING == Constants.TYPE_HIRAGANA) {
                         new ImageDialog.Builder(getContext())
                                 .setResId(gif.getHiragana())
                                 .override((int) ResourceUtils.getDimension(getContext(), R.dimen.dialog_width),

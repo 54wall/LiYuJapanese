@@ -1,12 +1,12 @@
 package pri.weiqiang.liyujapanese.network.baidu.service;
 
-import com.blankj.utilcode.utils.EncryptUtils;
+import com.blankj.utilcode.util.EncryptUtils;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.BaiduTranslateBean;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqiang.liyujapanese.mvp.bean.translation.BaiduTranslateBean;
 import pri.weiqiang.liyujapanese.network.baidu.BaiduTranslateApi;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

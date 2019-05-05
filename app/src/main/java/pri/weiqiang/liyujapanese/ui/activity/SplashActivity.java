@@ -17,12 +17,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import pri.weiqaing.common.base.BaseActivity;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.manager.DBManager;
 import pri.weiqiang.liyujapanese.manager.GifManager;
 import pri.weiqiang.liyujapanese.manager.SoundPoolManager;
-import pri.weiqiang.liyujapanese.utils.PermissionHelper;
-import pri.weiqiang.liyujapanese.utils.ResourceUtils;
+import pri.weiqaing.common.utils.PermissionHelper;
+import pri.weiqaing.common.utils.ResourceUtils;
 
 
 public class SplashActivity extends BaseActivity {

@@ -10,19 +10,21 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import java.util.List;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
-import pri.weiqiang.liyujapanese.MyApplication;
+import pri.weiqaing.common.base.BaseApplication;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.TranslateSpinnerItem;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.TranslateFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.translation.TranslateSpinnerItem;
+import pri.weiqiang.liyujapanese.mvp.presenter.translation.TranslateFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.translation.TranslateFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.TranslateSpinnerAdapter;
 
-public class TranslateFragment extends BaseFragment implements BaseView.TranslateFragmentView, View.OnClickListener {
+public class TranslateFragment extends BaseFragment implements TranslateFragmentView, View.OnClickListener {
 
 
     @BindView(R.id.layout_root)
@@ -155,13 +157,13 @@ public class TranslateFragment extends BaseFragment implements BaseView.Translat
     public void setFromSpinner(List<TranslateSpinnerItem> list) {
 
         mFromSpinner.setAdapter(new TranslateSpinnerAdapter(list, getContext()));
-        mFromSpinner.setSelection(MyApplication.FROM_LAN);
+        mFromSpinner.setSelection(BaseApplication.FROM_LAN);
     }
 
     @Override
     public void setToSpinner(List<TranslateSpinnerItem> list) {
         mToSpinner.setAdapter(new TranslateSpinnerAdapter(list, getContext()));
-        mToSpinner.setSelection(MyApplication.TO_LAN);
+        mToSpinner.setSelection(BaseApplication.TO_LAN);
     }
 
 

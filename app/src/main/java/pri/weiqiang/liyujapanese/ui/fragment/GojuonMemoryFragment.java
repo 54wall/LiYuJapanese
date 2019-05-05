@@ -3,28 +3,30 @@ package pri.weiqiang.liyujapanese.ui.fragment;
 import android.os.Bundle;
 import android.util.Log;
 
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
 import butterknife.BindView;
-import pri.weiqiang.liyujapanese.MyApplication;
+import pri.weiqaing.common.base.BaseApplication;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.utils.ResourceUtils;
+import pri.weiqaing.common.widget.dialog.ImageDialog;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
 import pri.weiqiang.liyujapanese.manager.GifManager;
 import pri.weiqiang.liyujapanese.manager.SoundPoolManager;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonGif;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonMemory;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.GojuonMemoryFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonGif;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonMemory;
+import pri.weiqiang.liyujapanese.mvp.presenter.gojuon.GojuonMemoryFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.gojuon.GojuonMemoryFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.GojuonMemoryRecyclerAdapter;
-import pri.weiqiang.liyujapanese.utils.ResourceUtils;
-import pri.weiqiang.liyujapanese.widget.dialog.ImageDialog;
 
-public class GojuonMemoryFragment extends BaseFragment implements BaseView.GojuonMemoryFragmentView {
+public class GojuonMemoryFragment extends BaseFragment implements GojuonMemoryFragmentView {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -85,7 +87,7 @@ public class GojuonMemoryFragment extends BaseFragment implements BaseView.Gojuo
                 Log.e(TAG, "onLongClick item:" + item.getRome() + ":" + item.getKatakana());
                 GojuonGif gif = GifManager.getInstance().getJPGif(item.getRome());
                 if (gif != null) {
-                    if (MyApplication.TYPE_MING == Constants.TYPE_HIRAGANA) {
+                    if (BaseApplication.TYPE_MING == Constants.TYPE_HIRAGANA) {
                         new ImageDialog.Builder(getContext())
                                 .setResId(gif.getHiragana())
                                 .override((int) ResourceUtils.getDimension(getContext(), R.dimen.dialog_width),

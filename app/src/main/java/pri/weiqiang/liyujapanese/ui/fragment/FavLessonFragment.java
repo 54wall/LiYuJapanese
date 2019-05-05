@@ -5,20 +5,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import java.util.Collections;
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import java.util.Collections;
+import java.util.List;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.LessonFav;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.FavLessonFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.LessonFav;
+import pri.weiqiang.liyujapanese.mvp.presenter.dic.FavLessonFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.dic.FavLessonFragmentView;
 import pri.weiqiang.liyujapanese.ui.activity.MainActivity;
 import pri.weiqiang.liyujapanese.ui.adapter.StaggeredGridAdapter;
 import pri.weiqiang.liyujapanese.ui.adapter.stagger.OnItemClickLitener;
@@ -27,7 +29,7 @@ import pri.weiqiang.liyujapanese.ui.adapter.stagger.OnItemClickLitener;
  * Created by weiqiang on 2018/10/8.
  */
 
-public class FavLessonFragment extends BaseFragment implements BaseView.FavLessonFragmentView {
+public class FavLessonFragment extends BaseFragment implements FavLessonFragmentView {
 
     private static final String TAG = FavLessonFragment.class.getSimpleName();
     StaggeredGridAdapter staggeredGridAdapter;

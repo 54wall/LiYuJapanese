@@ -5,27 +5,29 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
 
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import java.util.List;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.rxbus.RxBus;
+import pri.weiqaing.common.rxbus.event.EventContainer;
+import pri.weiqaing.common.rxbus.event.PhotoViewEvent;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.PixivIllustBean;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.PixivIllustFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
-import pri.weiqiang.liyujapanese.rxbus.RxBus;
-import pri.weiqiang.liyujapanese.rxbus.event.EventContainer;
-import pri.weiqiang.liyujapanese.rxbus.event.PhotoViewEvent;
+import pri.weiqiang.liyujapanese.mvp.bean.pixivIllust.PixivIllustBean;
+import pri.weiqiang.liyujapanese.mvp.presenter.pixivIllust.PixivIllustFragmentPresenter;
+import pri.weiqiang.liyujapanese.mvp.presenter.pixivIllust.PixivIllustFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.pixivIllust.PixivIllustFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.PixivIllustRecyclerAdapter;
 
 
-public class PixivIllustFragment extends BaseFragment implements BaseView.PixivIllustFragmentView {
+public class PixivIllustFragment extends BaseFragment implements PixivIllustFragmentView {
 
     @BindView(R.id.layout_root)
     LinearLayout mRootLayout;
@@ -34,7 +36,7 @@ public class PixivIllustFragment extends BaseFragment implements BaseView.PixivI
     @BindView(R.id.refresh_layout)
     SwipeRefreshLayout mRefreshLayout;
     String mode_illust;
-    BasePresenter.PixivIllustFragmentPresenter presenter;
+    PixivIllustFragmentPresenter presenter;
     private String TAG = PixivIllustFragment.class.getSimpleName();
 
     public static PixivIllustFragment newInstance(String mode) {

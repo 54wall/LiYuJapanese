@@ -10,10 +10,11 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import butterknife.BindView;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import pri.weiqaing.common.base.BaseActivity;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.rxbus.RxBus;
-import pri.weiqiang.liyujapanese.rxbus.event.EventContainer;
-import pri.weiqiang.liyujapanese.rxbus.event.SettingEvent;
+import pri.weiqaing.common.rxbus.RxBus;
+import pri.weiqaing.common.rxbus.event.EventContainer;
+import pri.weiqaing.common.rxbus.event.SettingEvent;
 import pri.weiqiang.liyujapanese.ui.fragment.SettingFragment;
 
 

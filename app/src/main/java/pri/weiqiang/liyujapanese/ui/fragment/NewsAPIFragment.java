@@ -4,30 +4,32 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.utils.DateUtils;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
 import pri.weiqiang.liyujapanese.mvp.bean.newsapi.DisplaybleNews;
 import pri.weiqiang.liyujapanese.mvp.bean.newsapi.NewsResponse;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.NewsAPIFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.presenter.newsapi.NewsAPIFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.newsapi.NewsAPIFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.newsapi.NewsApiHYArticleListAdapter;
 import pri.weiqiang.liyujapanese.ui.adapter.newsapi.SectionItem;
-import pri.weiqiang.liyujapanese.utils.DateUtils;
 
 /**
  * Created by weiqiang on 2018/12/11.
  */
 
-public class NewsAPIFragment extends BaseFragment implements BaseView.NewsAPIFragmentView {
+public class NewsAPIFragment extends BaseFragment implements NewsAPIFragmentView {
 
     private static final String TAG = NewsAPIFragment.class.getSimpleName();
     public BasePresenter.NewsAPIFragmentPresenter presenter;

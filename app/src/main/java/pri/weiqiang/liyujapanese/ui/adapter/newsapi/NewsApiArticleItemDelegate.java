@@ -10,8 +10,8 @@ import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.loader.GlideImageLoader;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.loader.GlideImageLoader;
 import pri.weiqiang.liyujapanese.mvp.bean.newsapi.ArticleStructure;
 import pri.weiqiang.liyujapanese.mvp.bean.newsapi.DisplaybleNews;
 import pri.weiqiang.liyujapanese.ui.activity.WebViewActivity;

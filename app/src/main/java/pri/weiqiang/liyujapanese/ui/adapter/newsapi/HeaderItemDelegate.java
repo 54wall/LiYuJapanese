@@ -11,11 +11,11 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import java.util.List;
 
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.loader.GlideImageLoader;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.loader.GlideImageLoader;
 import pri.weiqiang.liyujapanese.mvp.bean.newsapi.DisplaybleNews;
 import pri.weiqiang.liyujapanese.ui.activity.ArticleDetailActivity;
-import pri.weiqiang.liyujapanese.widget.banner.Banner;
+import pri.weiqaing.common.widget.banner.Banner;
 
 /**
  * Created by Administrator on 2017/1/4.

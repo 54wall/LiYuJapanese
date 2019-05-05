@@ -13,7 +13,7 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.PixivIllustBean;
+import pri.weiqiang.liyujapanese.mvp.bean.pixivIllust.PixivIllustBean;
 
 public class PixivIllustRecyclerAdapter extends RecyclerView.Adapter<PixivIllustRecyclerAdapter.ViewHolder> {
 

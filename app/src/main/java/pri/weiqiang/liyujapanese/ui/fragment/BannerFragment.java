@@ -3,12 +3,14 @@ package pri.weiqiang.liyujapanese.ui.fragment;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
+
 import com.bumptech.glide.Glide;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.config.Constants;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
 import pri.weiqiang.liyujapanese.mvp.bean.BannerItem;
 
 public class BannerFragment extends BaseFragment {

@@ -7,21 +7,23 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.manager.SharedPreferenceManager;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.manager.SharedPreferenceManager;
-import pri.weiqiang.liyujapanese.mvp.bean.Book;
-import pri.weiqiang.liyujapanese.mvp.bean.Lesson;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.LessonsFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.Book;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.Lesson;
+import pri.weiqiang.liyujapanese.mvp.presenter.dic.LessonsFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.dic.LessonsFragmentView;
 import pri.weiqiang.liyujapanese.ui.activity.MainActivity;
 import pri.weiqiang.liyujapanese.ui.adapter.LeftMenuAdapter;
 import pri.weiqiang.liyujapanese.ui.adapter.RightMenuAdapter;
@@ -30,7 +32,7 @@ import pri.weiqiang.liyujapanese.ui.adapter.RightMenuAdapter;
  * Created by weiqiang on 2018/3/16.
  */
 
-public class LessonsFragment extends BaseFragment implements BaseView.LessonsFragmentView
+public class LessonsFragment extends BaseFragment implements LessonsFragmentView
         , LeftMenuAdapter.onItemSelectedListener {
 
     private static final String TAG = LessonsFragment.class.getSimpleName();

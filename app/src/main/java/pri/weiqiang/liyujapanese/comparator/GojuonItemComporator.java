@@ -2,7 +2,7 @@ package pri.weiqiang.liyujapanese.comparator;
 
 import java.util.Comparator;
 
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonItem;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
 
 public class GojuonItemComporator implements Comparator<GojuonItem> {
 

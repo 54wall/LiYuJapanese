@@ -9,10 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,15 +17,22 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import me.pwcong.radiobuttonview.view.RadioButtonView;
+import pri.weiqaing.common.base.BaseActivity;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.manager.ActivityManager;
+import pri.weiqaing.common.manager.SharedPreferenceManager;
+import pri.weiqaing.common.utils.ResourceUtils;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.manager.ActivityManager;
-import pri.weiqiang.liyujapanese.manager.SharedPreferenceManager;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
 import pri.weiqiang.liyujapanese.mvp.presenter.MainActivityPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.view.MainActivityView;
 import pri.weiqiang.liyujapanese.ui.fragment.FavLessonFragment;
 import pri.weiqiang.liyujapanese.ui.fragment.FavWordsFragment;
 import pri.weiqiang.liyujapanese.ui.fragment.GameFragment;
@@ -42,10 +45,9 @@ import pri.weiqiang.liyujapanese.ui.fragment.PixivIllustTabFragment;
 import pri.weiqiang.liyujapanese.ui.fragment.TranslateFragment;
 import pri.weiqiang.liyujapanese.ui.fragment.WordsFragment;
 import pri.weiqiang.liyujapanese.ui.fragment.ZhihuFragment;
-import pri.weiqiang.liyujapanese.utils.ResourceUtils;
 
 
-public class MainActivity extends BaseActivity implements BaseView.MainActivityView {
+public class MainActivity extends BaseActivity implements MainActivityView {
 
     private final String TAG = getClass().getSimpleName();
 

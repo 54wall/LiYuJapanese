@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.blankj.utilcode.utils.FileUtils;
+import com.blankj.utilcode.util.FileUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.github.chrisbanes.photoview.PhotoView;
@@ -23,8 +23,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import pri.weiqaing.common.base.BaseActivity;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
+import pri.weiqaing.common.config.Constants;
 
 public class PhotoViewActivity extends BaseActivity {
 
@@ -75,7 +76,7 @@ public class PhotoViewActivity extends BaseActivity {
                             if (FileUtils.createOrExistsDir(Constants.FILEDIR_ROOT)) {
 
                                 File dstFile = new File(Constants.FILEDIR_ROOT, String.valueOf(img_id) + Constants.FILETYPE_JPG);
-                                FileUtils.copyFile(srcFile, dstFile);
+                                FileUtils.copyFile(srcFile, dstFile,new Listener());
 
                             }
                             emitter.onNext(R.string.save_success);
@@ -120,5 +121,14 @@ public class PhotoViewActivity extends BaseActivity {
     public void onBackPressed() {
         finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    /**设置文件是否覆盖*/
+    public class Listener implements FileUtils.OnReplaceListener{
+
+        @Override
+        public boolean onReplace() {
+
+            return false;
+        }
     }
 }

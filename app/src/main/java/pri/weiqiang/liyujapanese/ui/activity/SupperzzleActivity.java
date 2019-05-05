@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseActivity;
 import pri.weiqiang.liyujapanese.R;
 
 public class SupperzzleActivity extends BaseActivity {

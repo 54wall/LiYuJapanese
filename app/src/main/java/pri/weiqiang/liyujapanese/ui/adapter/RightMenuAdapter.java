@@ -12,8 +12,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.Book;
-import pri.weiqiang.liyujapanese.mvp.bean.Lesson;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.Book;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.Lesson;
 
 public class RightMenuAdapter extends RecyclerView.Adapter {
 

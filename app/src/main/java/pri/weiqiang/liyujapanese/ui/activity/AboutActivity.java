@@ -7,9 +7,10 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseActivity;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.utils.ActivityUtils;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.utils.ActivityUtils;
 
 
 public class AboutActivity extends BaseActivity {

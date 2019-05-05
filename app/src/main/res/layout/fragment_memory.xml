@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <pri.weiqiang.liyujapanese.widget.swipecardview.SwipeFlingAdapterView
+    <pri.weiqaing.common.widget.swipecardview.SwipeFlingAdapterView
         android:id="@+id/swipe_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

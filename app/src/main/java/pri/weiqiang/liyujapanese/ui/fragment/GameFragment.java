@@ -6,10 +6,11 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.rxbus.RxBus;
-import pri.weiqiang.liyujapanese.rxbus.event.EventContainer;
-import pri.weiqiang.liyujapanese.rxbus.event.GameEvent;
+import pri.weiqaing.common.rxbus.RxBus;
+import pri.weiqaing.common.rxbus.event.EventContainer;
+import pri.weiqaing.common.rxbus.event.GameEvent;
 
 public class GameFragment extends BaseFragment {
 

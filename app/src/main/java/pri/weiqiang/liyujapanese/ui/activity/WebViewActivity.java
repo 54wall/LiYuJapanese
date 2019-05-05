@@ -18,7 +18,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
+import pri.weiqaing.common.config.Constants;
 
 
 public class WebViewActivity extends AppCompatActivity {

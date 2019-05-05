@@ -4,29 +4,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.Nullable;
+
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.utils.ResourceUtils;
+import pri.weiqaing.common.widget.dialog.ImageDialog;
+import pri.weiqaing.common.widget.swipecardview.SwipeFlingAdapterView;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
 import pri.weiqiang.liyujapanese.manager.GifManager;
 import pri.weiqiang.liyujapanese.manager.SoundPoolManager;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonGif;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonItem;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.MemoryFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonGif;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
+import pri.weiqiang.liyujapanese.mvp.presenter.memory.MemoryFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.memory.MemoryFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.MemorySwipeAdapter;
-import pri.weiqiang.liyujapanese.utils.ResourceUtils;
-import pri.weiqiang.liyujapanese.widget.dialog.ImageDialog;
-import pri.weiqiang.liyujapanese.widget.swipecardview.SwipeFlingAdapterView;
 
-public class MemoryFragment extends BaseFragment implements BaseView.MemoryFragmentView {
+public class MemoryFragment extends BaseFragment implements MemoryFragmentView {
 
     @BindView(R.id.layout_root)
     RelativeLayout mRootLayout;

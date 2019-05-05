@@ -11,23 +11,25 @@ import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseActivity;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.manager.SharedPreferenceManager;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.manager.SharedPreferenceManager;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonItem;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.PuzzleActivityPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
+import pri.weiqiang.liyujapanese.mvp.presenter.puzzle.PuzzleActivityPresenter;
+import pri.weiqiang.liyujapanese.mvp.presenter.puzzle.PuzzleActivityPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.puzzle.PuzzleActivityView;
 
-public class PuzzleActivity extends BaseActivity implements BaseView.PuzzleActivityView, View.OnClickListener {
+public class PuzzleActivity extends BaseActivity implements PuzzleActivityView, View.OnClickListener {
 
     public static final int TYPE_HIRAGANA_ROME = 0;
     public static final int TYPE_HIRAGANA_KATAKANA = 1;
@@ -56,7 +58,7 @@ public class PuzzleActivity extends BaseActivity implements BaseView.PuzzleActiv
     GojuonItem current;
     List<GojuonItem> items;
 
-    BasePresenter.PuzzleActivityPresenter presenter;
+    PuzzleActivityPresenter presenter;
 
     @Override
     protected int getViewId() {

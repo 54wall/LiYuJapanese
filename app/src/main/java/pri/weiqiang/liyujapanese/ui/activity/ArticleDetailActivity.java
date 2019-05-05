@@ -9,21 +9,23 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseActivity;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.loader.GlideImageLoader;
+import pri.weiqaing.common.rxbus.RxBus;
+import pri.weiqaing.common.rxbus.event.EventContainer;
+import pri.weiqaing.common.rxbus.event.SettingEvent;
+import pri.weiqaing.common.utils.HtmlUtil;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.loader.GlideImageLoader;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.StoryContentEntity;
-import pri.weiqiang.liyujapanese.mvp.presenter.ArticleDetailActivityPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
-import pri.weiqiang.liyujapanese.rxbus.RxBus;
-import pri.weiqiang.liyujapanese.rxbus.event.EventContainer;
-import pri.weiqiang.liyujapanese.rxbus.event.SettingEvent;
-import pri.weiqiang.liyujapanese.utils.HtmlUtil;
+import pri.weiqiang.liyujapanese.mvp.presenter.zhihu.ArticleDetailActivityPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.zhihu.ArticleDetailActivityView;
 
 
-public class ArticleDetailActivity extends BaseActivity implements BaseView.ArticleDetailActivityView {
+public class ArticleDetailActivity extends BaseActivity implements ArticleDetailActivityView {
 
     private static final String TAG = ArticleDetailActivity.class.getSimpleName();
 

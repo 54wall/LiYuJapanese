@@ -1,7 +1,7 @@
 package pri.weiqiang.liyujapanese.network.baidu.service;
 
 import io.reactivex.functions.Consumer;
-import pri.weiqiang.liyujapanese.mvp.bean.BaiduTranslateBean;
+import pri.weiqiang.liyujapanese.mvp.bean.translation.BaiduTranslateBean;
 
 
 public interface BaiduService {

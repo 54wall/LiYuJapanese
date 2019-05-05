@@ -4,7 +4,7 @@ import java.util.List;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import pri.weiqiang.liyujapanese.mvp.bean.PixivIllustTab;
+import pri.weiqiang.liyujapanese.mvp.bean.pixivIllust.PixivIllustTab;
 import pri.weiqiang.liyujapanese.ui.fragment.PixivIllustFragment;
 
 

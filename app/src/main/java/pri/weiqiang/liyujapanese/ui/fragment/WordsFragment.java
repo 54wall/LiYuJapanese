@@ -4,29 +4,31 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.LayoutAnimationController;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.utils.LayoutAnimationHelper;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.Word;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.WordsFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.Word;
+import pri.weiqiang.liyujapanese.mvp.presenter.dic.WordsFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.dic.WordsFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.WordsRecyclerAdapter;
-import pri.weiqiang.liyujapanese.utils.LayoutAnimationHelper;
 
 /**
  * Created by weiqiang on 2018/3/16.
  */
 
-public class WordsFragment extends BaseFragment implements BaseView.WordsFragmentView {
+public class WordsFragment extends BaseFragment implements WordsFragmentView {
 
     private static final String TAG = WordsFragment.class.getSimpleName();
     @BindView(R.id.recycler_view)
@@ -64,6 +66,7 @@ public class WordsFragment extends BaseFragment implements BaseView.WordsFragmen
         isExpandable = getArguments().getBoolean(Constants.FLAG_IS_EXPANDABLE);
         Log.e(TAG, "lesson:" + lesson);
         presenter = new WordsFragmentPresenterImpl(this, lesson);
+
         mSwipeRefresh.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

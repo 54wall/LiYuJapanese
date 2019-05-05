@@ -2,7 +2,7 @@ package pri.weiqiang.liyujapanese.comparator;
 
 import java.util.Comparator;
 
-import pri.weiqiang.liyujapanese.mvp.bean.LessonFav;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.LessonFav;
 
 public class LessonFavComporator implements Comparator<LessonFav> {
 

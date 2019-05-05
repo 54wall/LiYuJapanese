@@ -12,7 +12,7 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.Book;
+import pri.weiqiang.liyujapanese.mvp.bean.dic.Book;
 
 
 public class LeftMenuAdapter extends RecyclerView.Adapter {

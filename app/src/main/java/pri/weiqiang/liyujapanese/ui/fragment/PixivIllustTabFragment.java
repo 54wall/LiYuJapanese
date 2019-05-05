@@ -4,23 +4,25 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.PixivIllustTab;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.PixivIllustTabFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.pixivIllust.PixivIllustTab;
+import pri.weiqiang.liyujapanese.mvp.presenter.pixivIllust.PixivIllustTabFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.pixivIllust.PixivIllustTabFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.PixivIllustTabPagerAdapter;
 
 
-public class PixivIllustTabFragment extends BaseFragment implements BaseView.PixivIllustTabFragmentView {
+public class PixivIllustTabFragment extends BaseFragment implements PixivIllustTabFragmentView {
 
     private final String TAG = getClass().getSimpleName();
 

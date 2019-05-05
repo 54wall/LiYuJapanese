@@ -4,22 +4,23 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 
-import pri.weiqiang.liyujapanese.MyApplication;
+import pri.weiqaing.common.base.BaseApplication;
+import pri.weiqaing.common.base.mvp.BasePresenter;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.manager.SharedPreferenceManager;
+import pri.weiqaing.common.rxbus.event.EventContainer;
+import pri.weiqaing.common.rxbus.event.GameEvent;
+import pri.weiqaing.common.rxbus.event.PhotoViewEvent;
+import pri.weiqaing.common.rxbus.event.SettingEvent;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.manager.SharedPreferenceManager;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
-import pri.weiqiang.liyujapanese.rxbus.event.EventContainer;
-import pri.weiqiang.liyujapanese.rxbus.event.GameEvent;
-import pri.weiqiang.liyujapanese.rxbus.event.PhotoViewEvent;
-import pri.weiqiang.liyujapanese.rxbus.event.SettingEvent;
+import pri.weiqiang.liyujapanese.mvp.view.MainActivityView;
 
 
-public class MainActivityPresenterImpl extends BasePresenter<BaseView.MainActivityView> implements BasePresenter.MainActivityPresenter {
+public class MainActivityPresenterImpl extends BasePresenter<MainActivityView> implements BasePresenter.MainActivityPresenter {
 
     private final String TAG = getClass().getSimpleName();
 
-    public MainActivityPresenterImpl(BaseView.MainActivityView view) {
+    public MainActivityPresenterImpl(MainActivityView view) {
         super(view);
     }
 
@@ -34,11 +35,11 @@ public class MainActivityPresenterImpl extends BasePresenter<BaseView.MainActivi
         switch (position) {
 
             case 0:
-                MyApplication.TYPE_MING = Constants.TYPE_HIRAGANA;
+                BaseApplication.TYPE_MING = Constants.TYPE_HIRAGANA;
                 view.switchGojuon();
                 break;
             case 1:
-                MyApplication.TYPE_MING = Constants.TYPE_KATAKANA;
+                BaseApplication.TYPE_MING = Constants.TYPE_KATAKANA;
                 view.switchGojuon();
                 break;
             case 2:

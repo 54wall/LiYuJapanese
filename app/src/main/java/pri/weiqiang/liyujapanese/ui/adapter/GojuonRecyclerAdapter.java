@@ -8,10 +8,10 @@ import android.widget.TextView;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
-import pri.weiqiang.liyujapanese.MyApplication;
+import pri.weiqaing.common.base.BaseApplication;
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.GojuonItem;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
 
 
 public class GojuonRecyclerAdapter extends RecyclerView.Adapter<GojuonRecyclerAdapter.ViewHolder> {
@@ -45,7 +45,7 @@ public class GojuonRecyclerAdapter extends RecyclerView.Adapter<GojuonRecyclerAd
 
         GojuonItem item = list.get(position);
 
-        if (MyApplication.TYPE_MING == Constants.TYPE_HIRAGANA) {
+        if (BaseApplication.TYPE_MING == Constants.TYPE_HIRAGANA) {
             holder.tv_jiaming.setText(item.getHiragana());
         } else {
             holder.tv_jiaming.setText(item.getKatakana());

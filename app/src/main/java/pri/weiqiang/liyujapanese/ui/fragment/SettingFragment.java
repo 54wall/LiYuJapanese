@@ -7,12 +7,12 @@ import android.preference.PreferenceFragment;
 import android.util.Log;
 
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.config.Constants;
-import pri.weiqiang.liyujapanese.manager.SharedPreferenceManager;
-import pri.weiqiang.liyujapanese.rxbus.RxBus;
-import pri.weiqiang.liyujapanese.rxbus.event.EventContainer;
-import pri.weiqiang.liyujapanese.rxbus.event.SettingEvent;
-import pri.weiqiang.liyujapanese.utils.JpTTSUtils;
+import pri.weiqaing.common.config.Constants;
+import pri.weiqaing.common.manager.SharedPreferenceManager;
+import pri.weiqaing.common.rxbus.RxBus;
+import pri.weiqaing.common.rxbus.event.EventContainer;
+import pri.weiqaing.common.rxbus.event.SettingEvent;
+import pri.weiqaing.common.utils.JpTTSUtils;
 
 public class SettingFragment extends PreferenceFragment {
 

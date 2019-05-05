@@ -3,7 +3,7 @@ package pri.weiqiang.liyujapanese.ui.adapter.zhihu;
 import java.util.Date;
 
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.DisplaybleItem;
-import pri.weiqiang.liyujapanese.utils.DateUtils;
+import pri.weiqaing.common.utils.DateUtils;
 
 /**
  * Created by Administrator on 2017/1/4.

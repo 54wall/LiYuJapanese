@@ -14,7 +14,7 @@
     <!--Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:12:5-78:19 to override.-->
     <application
         tools:replace="android:label"
-        android:name=".MyApplication"
+        android:name="pri.weiqaing.common.base.BaseApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"

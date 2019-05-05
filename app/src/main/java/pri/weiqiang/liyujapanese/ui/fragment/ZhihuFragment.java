@@ -4,21 +4,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
+import pri.weiqaing.common.base.BaseFragment;
+import pri.weiqaing.common.base.mvp.BasePresenter;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.BeforeDailyEntity;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.DisplaybleItem;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.LatestDailyEntity;
-import pri.weiqiang.liyujapanese.mvp.presenter.BasePresenter;
-import pri.weiqiang.liyujapanese.mvp.presenter.ZhihuFragmentPresenterImpl;
-import pri.weiqiang.liyujapanese.mvp.view.BaseView;
+import pri.weiqiang.liyujapanese.mvp.presenter.zhihu.ZhihuFragmentPresenterImpl;
+import pri.weiqiang.liyujapanese.mvp.view.zhihu.ZhihuFragmentView;
 import pri.weiqiang.liyujapanese.ui.adapter.zhihu.HYArticleListAdapter;
 import pri.weiqiang.liyujapanese.ui.adapter.zhihu.HomeHeaderItem;
 import pri.weiqiang.liyujapanese.ui.adapter.zhihu.HomeSectionItem;
@@ -27,7 +29,7 @@ import pri.weiqiang.liyujapanese.ui.adapter.zhihu.HomeSectionItem;
  * Created by weiqiang on 2018/4/11.
  */
 
-public class ZhihuFragment extends BaseFragment implements BaseView.ZhihuFragmentView {
+public class ZhihuFragment extends BaseFragment implements ZhihuFragmentView {
 
     private static final String TAG = ZhihuFragment.class.getSimpleName();
     @BindView(R.id.recyclerView)

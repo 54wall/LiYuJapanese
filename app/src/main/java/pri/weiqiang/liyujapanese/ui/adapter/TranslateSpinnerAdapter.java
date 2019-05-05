@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.mvp.bean.TranslateSpinnerItem;
+import pri.weiqiang.liyujapanese.mvp.bean.translation.TranslateSpinnerItem;
 
 public class TranslateSpinnerAdapter extends BaseAdapter {
 
