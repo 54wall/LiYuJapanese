@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.mvp.bean.pixivIllust.PixivIllustBean;
 

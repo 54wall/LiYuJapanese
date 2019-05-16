@@ -1,9 +1,10 @@
 package pri.weiqiang.liyujapanese.ui.adapter;
 
-import java.util.List;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import java.util.List;
+
 import pri.weiqiang.liyujapanese.mvp.bean.BannerItem;
 import pri.weiqiang.liyujapanese.ui.fragment.BannerFragment;
 

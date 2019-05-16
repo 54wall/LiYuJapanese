@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'walle'
+
 def releaseTime() {
     return new Date().format("yyyyMMdd_hhmmss", TimeZone.getTimeZone("GMT+8"))
 }
+
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
@@ -81,11 +83,11 @@ android {
     }*/
     //创建productFlavors
     productFlavors {
-        ceshi{//配置测试版包名和应用名
+        ceshi {//配置测试版包名和应用名
             applicationId "ceshi.pri.weiqiang.liyujapanese"
             manifestPlaceholders = [APP_NAME: "@string/app_name_ceshi"]
         }
-        shengchan{//配置生产版包名和应用名
+        shengchan {//配置生产版包名和应用名
             applicationId "shengchan.pri.weiqiang.liyujapanese"
             manifestPlaceholders = [APP_NAME: "@string/app_name_shengchan"]
         }

@@ -5,12 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
-import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqaing.common.base.BaseApplication;
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.config.Constants;
+import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
 
 

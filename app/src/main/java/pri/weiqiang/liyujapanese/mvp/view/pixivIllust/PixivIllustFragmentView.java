@@ -2,8 +2,8 @@ package pri.weiqiang.liyujapanese.mvp.view.pixivIllust;
 
 import android.content.DialogInterface;
 
-import pri.weiqiang.liyujapanese.mvp.bean.pixivIllust.PixivIllustBean;
 import pri.weiqaing.common.base.mvp.BaseView;
+import pri.weiqiang.liyujapanese.mvp.bean.pixivIllust.PixivIllustBean;
 
 public interface PixivIllustFragmentView extends BaseView<PixivIllustBean> {
     void showMsg(int msg);

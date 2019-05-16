@@ -8,14 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.recyclerview.widget.RecyclerView;
+import pri.weiqaing.common.utils.JpTTSUtils;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.manager.DBManager;
 import pri.weiqiang.liyujapanese.mvp.bean.dic.Word;
-import pri.weiqaing.common.utils.JpTTSUtils;
 
 public class FavWordsRecyclerAdapter extends RecyclerView.Adapter<FavWordsRecyclerAdapter.ViewHolder> {
 

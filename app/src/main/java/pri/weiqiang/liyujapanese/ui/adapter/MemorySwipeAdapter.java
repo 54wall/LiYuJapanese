@@ -9,10 +9,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.config.Constants;
-import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
 import pri.weiqaing.common.utils.ResourceUtils;
+import pri.weiqiang.liyujapanese.R;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
 
 
 public class MemorySwipeAdapter extends BaseAdapter {

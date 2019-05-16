@@ -12,8 +12,8 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
 
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.loader.GlideImageLoader;
+import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.DisplaybleItem;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.EditorsEntity;
 

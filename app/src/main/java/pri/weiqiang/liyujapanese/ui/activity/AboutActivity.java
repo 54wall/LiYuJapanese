@@ -6,11 +6,12 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+
 import butterknife.BindView;
 import pri.weiqaing.common.base.BaseActivity;
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.config.Constants;
 import pri.weiqaing.common.utils.ActivityUtils;
+import pri.weiqiang.liyujapanese.R;
 
 
 public class AboutActivity extends BaseActivity {

@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.config.Constants;
 import pri.weiqaing.common.loader.GlideImageLoader;
+import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.DisplaybleItem;
 import pri.weiqiang.liyujapanese.mvp.bean.zhihu.StoriesEntity;
 import pri.weiqiang.liyujapanese.ui.activity.ArticleDetailActivity;

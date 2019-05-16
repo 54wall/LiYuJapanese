@@ -13,14 +13,14 @@
     <!--is also present at [com.github.pwcong:RadioButtonView:v1.0.3] AndroidManifest.xml:13:9-41 value=(@string/app_name).-->
     <!--Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:12:5-78:19 to override.-->
     <application
-        tools:replace="android:label"
         android:name="pri.weiqaing.common.base.BaseApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
-        android:supportsRtl="true"
         android:label="${APP_NAME}"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:replace="android:label">
 
         <activity
             android:name=".ui.activity.SplashActivity"
@@ -39,9 +39,9 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="http"
                     android:host="liyu.com"
-                    android:pathPattern="/splash" />
+                    android:pathPattern="/splash"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
 

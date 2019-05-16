@@ -17,17 +17,17 @@ import java.util.List;
 import java.util.Map;
 
 import pri.weiqaing.common.base.BaseApplication;
-import pri.weiqiang.liyujapanese.R;
-import pri.weiqiang.liyujapanese.comparator.GojuonItemComporator;
 import pri.weiqaing.common.config.Constants;
 import pri.weiqaing.common.db.DatabaseHelper;
+import pri.weiqaing.common.utils.ResourceUtils;
+import pri.weiqiang.liyujapanese.R;
+import pri.weiqiang.liyujapanese.comparator.GojuonItemComporator;
 import pri.weiqiang.liyujapanese.mvp.bean.dic.Book;
-import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
-import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonMemory;
 import pri.weiqiang.liyujapanese.mvp.bean.dic.Lesson;
 import pri.weiqiang.liyujapanese.mvp.bean.dic.LessonFav;
 import pri.weiqiang.liyujapanese.mvp.bean.dic.Word;
-import pri.weiqaing.common.utils.ResourceUtils;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonItem;
+import pri.weiqiang.liyujapanese.mvp.bean.gojuon.GojuonMemory;
 
 public class DBManager {
 

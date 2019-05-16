@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+
 import butterknife.BindView;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -18,12 +19,12 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import pri.weiqaing.common.base.BaseActivity;
+import pri.weiqaing.common.utils.PermissionHelper;
+import pri.weiqaing.common.utils.ResourceUtils;
 import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.manager.DBManager;
 import pri.weiqiang.liyujapanese.manager.GifManager;
 import pri.weiqiang.liyujapanese.manager.SoundPoolManager;
-import pri.weiqaing.common.utils.PermissionHelper;
-import pri.weiqaing.common.utils.ResourceUtils;
 
 
 public class SplashActivity extends BaseActivity {

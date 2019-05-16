@@ -7,14 +7,15 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import butterknife.BindView;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import pri.weiqaing.common.base.BaseActivity;
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.rxbus.RxBus;
 import pri.weiqaing.common.rxbus.event.EventContainer;
 import pri.weiqaing.common.rxbus.event.SettingEvent;
+import pri.weiqiang.liyujapanese.R;
 import pri.weiqiang.liyujapanese.ui.fragment.SettingFragment;
 
 

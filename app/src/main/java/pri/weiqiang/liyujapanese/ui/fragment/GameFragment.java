@@ -5,12 +5,13 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+
 import butterknife.BindView;
 import pri.weiqaing.common.base.BaseFragment;
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.rxbus.RxBus;
 import pri.weiqaing.common.rxbus.event.EventContainer;
 import pri.weiqaing.common.rxbus.event.GameEvent;
+import pri.weiqiang.liyujapanese.R;
 
 public class GameFragment extends BaseFragment {
 

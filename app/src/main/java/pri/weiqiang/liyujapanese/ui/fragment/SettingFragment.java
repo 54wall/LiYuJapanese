@@ -6,13 +6,13 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.util.Log;
 
-import pri.weiqiang.liyujapanese.R;
 import pri.weiqaing.common.config.Constants;
 import pri.weiqaing.common.manager.SharedPreferenceManager;
 import pri.weiqaing.common.rxbus.RxBus;
 import pri.weiqaing.common.rxbus.event.EventContainer;
 import pri.weiqaing.common.rxbus.event.SettingEvent;
 import pri.weiqaing.common.utils.JpTTSUtils;
+import pri.weiqiang.liyujapanese.R;
 
 public class SettingFragment extends PreferenceFragment {
 
