@@ -20,7 +20,10 @@ public class SoundPoolManager {
     public static final ArrayList<GojuonSound> sounds = new ArrayList<>();
     private static final String TAG = SoundPoolManager.class.getSimpleName();
     private volatile static SoundPoolManager instance = null;
-
+    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+    private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
+    private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
+    private static final int KEEP_ALIVE_SECONDS = 30;
     static {
 
         sounds.add(new GojuonSound("a", R.raw.a));
@@ -153,10 +156,11 @@ public class SoundPoolManager {
     }
 
     public void init() {
+        //参考AsyncTask源码，可以根据不同手机CPU选择最优数量
+        final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE,
+                KEEP_ALIVE_SECONDS, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(128));
         //使用线程池在开始界面缓存全部五十音图
-        final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 5,
-                1, TimeUnit.SECONDS,
-                new LinkedBlockingQueue<>(100));
         for (GojuonSound sound : sounds) {
             Runnable runnable = () -> {
                 int id = soundPool.load(BaseApplication.getInstance(), sound.getResId(), 1);
