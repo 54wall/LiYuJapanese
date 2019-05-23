@@ -10,6 +10,9 @@ import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.analytics.MobclickAgent;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import pri.weiqaing.common.config.Constants;
 import pri.weiqaing.common.manager.SharedPreferenceManager;
 
@@ -21,7 +24,8 @@ public class BaseApplication extends Application {
     public static int TO_LAN = 0;
     public static boolean ISWIFI = false;
     private static BaseApplication instance = null;
-
+    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+    private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
     public synchronized static BaseApplication getInstance() {
         return instance;
     }
@@ -29,17 +33,22 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //Bugly
-        CrashReport.initCrashReport(getApplicationContext(), "0a341dafed", false);
-        //使用LeakCanary检测内存泄露
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
         instance = this;
-
+        ExecutorService service = Executors.newFixedThreadPool(CORE_POOL_SIZE);
+        service.submit(new Runnable() {
+            @Override
+            public void run() {
+                //Bugly
+                CrashReport.initCrashReport(getApplicationContext(), "0a341dafed", false);
+                //使用LeakCanary检测内存泄露
+                if (LeakCanary.isInAnalyzerProcess(instance)) {
+                    // This process is dedicated to LeakCanary for heap analysis.
+                    // You should not init your app in this process.
+                    return;
+                }
+                LeakCanary.install(instance);
+            }
+        });
         setDayNightMode(SharedPreferenceManager.getInstance().getString(Constants.MODE_THEME, Constants.MODE_DAY));
         Utils.init(this);
         ISWIFI = NetworkUtils.isWifiConnected();
