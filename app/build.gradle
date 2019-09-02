@@ -20,17 +20,18 @@ android {
     //签名配置
     signingConfigs {
         debug {
-            keyAlias "android"
-            keyPassword "android"
-            storeFile file("D:/IDE/MyKeystore/54wallKeystore.jks")
-            storePassword "android"
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('D:/Develop/tdr/code/aihub/Home/debug.keystore')
+            storePassword 'android'
         }
         release {
-            keyAlias "android"
-            keyPassword "android"
-            storeFile file("D:/IDE/MyKeystore/54wallKeystore.jks")
-            storePassword "android"
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('D:/Develop/tdr/code/aihub/Home/debug.keystore')
+            storePassword 'android'
         }
+
     }
 
     buildTypes {
@@ -117,7 +118,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'org.jsoup:jsoup:1.10.2'
     implementation 'com.getbase:floatingactionbutton:1.10.1'
@@ -126,7 +127,6 @@ dependencies {
     implementation 'com.zhy:base-rvadapter:3.0.3'
     implementation 'net.opacapp:multiline-collapsingtoolbar:27.1.1'
     implementation 'com.meituan.android.walle:library:1.1.6'
-
     implementation project(':lib_common')
     //butterknife需要特别处理，在组件化中仅放到lib_common会出现空指针异常
     api 'com.jakewharton:butterknife:10.0.0'
