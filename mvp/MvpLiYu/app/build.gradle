@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+apply plugin: 'walle'
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd_hhmmss", TimeZone.getTimeZone("GMT+8"))
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "pri.weiqiang.liyujapanese"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 12
+        flavorDimensions "versionCode"
+        versionName "0.1.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    //签名配置
+    signingConfigs {
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('D:/Develop/tdr/code/aihub/Home/debug.keystore')
+            storePassword 'android'
+        }
+        release {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('D:/Develop/tdr/code/aihub/Home/debug.keystore')
+            storePassword 'android'
+        }
+
+    }
+
+    buildTypes {
+
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            //混淆
+            minifyEnabled false
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+            //加载默认混淆配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.debug
+        }
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled false
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+            //加载默认混淆配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
+        }
+
+    }
+/*使用walle后不能再指定productFlavors：报错如下：Task 'assembleReleaseChannels' not found in root project */
+/*
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${releaseTime()}_LiYu_${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+        }
+    }
+
+    productFlavors {
+
+        weiqiang {}
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
+    }*/
+    //创建productFlavors
+    productFlavors {
+        ceshi {//配置测试版包名和应用名
+            applicationId "ceshi.pri.weiqiang.liyujapanese"
+            manifestPlaceholders = [APP_NAME: "@string/app_name_ceshi"]
+        }
+        shengchan {//配置生产版包名和应用名
+            applicationId "shengchan.pri.weiqiang.liyujapanese"
+            manifestPlaceholders = [APP_NAME: "@string/app_name_shengchan"]
+        }
+
+    }
+
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+
+    }
+}
+
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel")
+}
+
+dependencies {
+
+    //没有则报这个错误Unable to create call adapter for rx.Observable
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation 'org.jsoup:jsoup:1.10.2'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    implementation 'me.relex:circleindicator:1.2.1@aar'
+    implementation 'com.zhy:base-rvadapter:3.0.3'
+    implementation 'net.opacapp:multiline-collapsingtoolbar:27.1.1'
+    implementation 'com.meituan.android.walle:library:1.1.6'
+    implementation project(':lib_common')
+    //butterknife需要特别处理，在组件化中仅放到lib_common会出现空指针异常
+    api 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+}
+

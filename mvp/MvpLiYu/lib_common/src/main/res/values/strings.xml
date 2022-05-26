@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_ceshi">测试版LiYu</string>
+    <string name="app_name_shengchan">生产版LiYu</string>
+    <string name="menu_name">菜单</string>
+    <string name="dish_name">菜名</string>
+
+    <string name="menu_vocab">目录</string>
+    <string name="menu_fav">生词</string>
+    <string name="menu_expand">展开</string>
+    <string name="menu_technology">科技</string>
+    <string name="menu_science">科学</string>
+    <string name="menu_business">商业</string>
+    <string name="menu_general">综合</string>
+    <string name="menu_entertainment">娱乐</string>
+    <string name="menu_zhihu">知乎</string>
+
+    <string name="editor_in_chief">主编</string>
+    <string name="tips_word">• 下滑列表，开启乱序</string>
+    <string name="tips_jpstart">• 短按五十音按钮播放拼读语音\n• 长按五十音按钮演示文字书写</string>
+    <string name="tips_memory">• 左右滑动可切换卡片</string>
+    <string name="tips_translate">1.将要翻译的内容输入至原文文本框\n2.点击上方双方向按钮进行翻译</string>
+    <string name="warn_no_wifi">检测到您当前未使用WIFI网络，可能会消耗大量流量，是否允许继续加载？</string>
+
+    <string name="other">其他</string>
+    <string name="zhuoyin">浊音</string>
+    <string name="memory">记忆</string>
+    <string name="hiragana">平假名</string>
+    <string name="source_contents">原文：</string>
+    <string name="about">关于</string>
+    <string name="translation_contents">译文：</string>
+    <string name="paste">粘贴</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="translate">翻译</string>
+    <string name="zhihu_news">知乎日报</string>
+    <string name="news_api">外语新闻</string>
+    <string name="zhihu_fail_get_content">获取新闻内容失败。</string>
+    <string name="auto_check">自动检测</string>
+    <string name="setting">设置</string>
+    <string name="remember">知道了</string>
+    <string name="chinese">中文</string>
+    <string name="japanese">日语</string>
+    <string name="pixiv_illust">Pixiv插画</string>
+    <string name="english">英语</string>
+    <string name="katakana">片假名</string>
+    <string name="gojun_tips">巧记法</string>
+    <string name="row">行</string>
+    <string name="copy">复制</string>
+    <string name="hint_translate_source">这里输入原文</string>
+    <string name="small_tips">小提示</string>
+    <string name="image">图片</string>
+    <string name="national_flag">国旗</string>
+    <string name="gojun_memory">成语</string>
+    <string name="gojun_chengyu">联想</string>
+    <string name="qingyin">清音</string>
+    <string name="column">列</string>
+    <string name="clear">清空</string>
+    <string name="yin">音</string>
+    <string name="write">写</string>
+    <string name="app_name">鲤鱼日语</string>
+    <string name="jp_gojuon">五十音图</string>
+    <string name="drawer_word">单词</string>
+    <string name="do_not_remind">不再提醒</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="aoyin">拗音</string>
+
+    <string name="copy_successfully">已成功复制到剪切板</string>
+
+    <string name="daily">今日</string>
+    <string name="weekly">本周</string>
+    <string name="monthly">本月</string>
+    <string name="rookie">新人</string>
+    <string name="original">原创</string>
+    <string name="male">受男性欢迎</string>
+    <string name="female">受女性欢迎</string>
+
+    <string name="source_img">原图</string>
+    <string name="thumbnail">缩略图</string>
+    <string name="share">分享</string>
+    <string name="share_to">分享到…</string>
+
+    <string name="save_success">插画已成功下载并保存</string>
+    <string name="save_error">插画保存失败</string>
+
+    <string name="warn">提醒</string>
+
+    <string name="one_more_time">全部记住了吗？再来一次吧！</string>
+
+    <string name="one_more_press_to_exit">再按一次退出</string>
+
+    <string name="system_setting">系统设置</string>
+    <string name="theme">主题</string>
+    <string name="tts_fail">获取语音失败</string>
+    <string name="setting_tts">发音</string>
+    <string name="setting_tts_male01">男声一</string>
+    <string name="setting_tts_male02">男声二</string>
+    <string name="setting_tts_female01">女声</string>
+    <string name="more_setting">更多设置</string>
+    <string name="tips_setting">更多设置将来再添加完善。</string>
+
+    <string name="update_setting">检查更新</string>
+    <string name="auto">自动</string>
+    <string name="day">白天</string>
+    <string name="night">夜晚</string>
+
+    <string name="reboot_to_take_effect">请重新启动使设置生效。</string>
+    <string name="setting_effect">设置已生效。</string>
+    <string name="is_latest">当前已是最新版本。</string>
+
+    <string name="hello_contents">鲤鱼日语基于MVP+RxJava2+Retrofit2,一个简单的日语单词记忆App，它包含了新版标准日本语，大家的日本语，新编日语几套常见的日语教材词库，以及关于五十音图的学习记忆、乱入的知乎日报等等，希望能给初学日语的同学提供一定帮助。项目还会根据流行的开发技术继续完善，增加新功能，解决新老bug，不断迭代。</string>
+    <string name="version">version 0.1.2</string>
+
+    <string name="loading_data">正在加载数据</string>
+    <string name="loading_data_success">加载完成</string>
+    <string name="loading_data_error">数据加载错误，请重新启动</string>
+    <string name="author_name">一笃强</string>
+    <string name="author_github">https://github.com/54wall</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="loading_error">加载失败</string>
+    <string name="loading_disallow_pixiv">已禁止在移动网络下加载Pixiv插图</string>
+    <string name="translate_error">翻译失败</string>
+    <string name="supperzzle">对对碰</string>
+    <string name="game">游戏</string>
+    <string name="whoami">我是谁</string>
+    <string name="help">帮助</string>
+    <string name="hiragana_rome">平假名 -> 罗马音</string>
+    <string name="hiragana_katakana">平假名 -> 片假名</string>
+    <string name="katakana_rome">片假名 -> 罗马音</string>
+    <string name="sad">抱歉</string>
+    <string name="one_more_time_2">再来一次</string>
+    <string name="exit">退出</string>
+    <string name="highedt_score">最高分</string>
+    <string name="tips_correct_contents">当前连续答对次数：</string>
+    <string name="tips_highest_score_contents">最高连续答对次数：</string>
+    <string name="tips_puzzle_contents">我是谁？\n我的平假名、片假名和罗马音是哪个？</string>
+    <string name="tips_supperzzle_contents">在规定时间内进行配对，配对方式有：\n1.平假名 -> 罗马音\n2.平假名 -> 片假名\n3.片假名 -> 罗马音</string>
+
+</resources>

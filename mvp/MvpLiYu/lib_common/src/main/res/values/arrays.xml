@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="themes_values">
+        <item>auto</item>
+        <item>day</item>
+        <item>night</item>
+    </array>
+
+    <string-array name="themes_entries">
+        <item>@string/auto</item>
+        <item>@string/day</item>
+        <item>@string/night</item>
+    </string-array>
+
+    <array name="tts_values">
+        <item>male01</item>
+        <item>male02</item>
+        <item>female01</item>
+    </array>
+
+    <string-array name="tts_entries">
+        <item>@string/setting_tts_male01</item>
+        <item>@string/setting_tts_male02</item>
+        <item>@string/setting_tts_female01</item>
+    </string-array>
+
+</resources>

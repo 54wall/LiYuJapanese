@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_bar_layout" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/tv_tips"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="250sp" />
+
+            <TextView
+                android:id="@+id/tv_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@color/item"
+                android:textSize="200sp" />
+
+            <TableLayout
+                android:id="@+id/tl_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <TableRow>
+
+                    <androidx.appcompat.widget.ButtonBarLayout android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/btn_answer1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_chevron_right"
+                            android:drawableLeft="@drawable/ic_chevron_right" />
+
+                    </androidx.appcompat.widget.ButtonBarLayout>
+
+                    <androidx.appcompat.widget.ButtonBarLayout android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/btn_answer2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_chevron_right"
+                            android:drawableLeft="@drawable/ic_chevron_right" />
+
+                    </androidx.appcompat.widget.ButtonBarLayout>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <androidx.appcompat.widget.ButtonBarLayout android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/btn_answer3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_chevron_right"
+                            android:drawableLeft="@drawable/ic_chevron_right" />
+
+                    </androidx.appcompat.widget.ButtonBarLayout>
+
+                    <androidx.appcompat.widget.ButtonBarLayout android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/btn_answer4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_chevron_right"
+                            android:drawableLeft="@drawable/ic_chevron_right" />
+
+                    </androidx.appcompat.widget.ButtonBarLayout>
+
+                </TableRow>
+
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tl_select"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tips_correct_contents"
+                    android:textColor="@color/item" />
+
+                <TextView
+                    android:id="@+id/tv_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/item" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
