@@ -41,7 +41,7 @@ public class WordFragmentViewModel extends ViewModel {
     public void setQuery(String query) {
         mSavedStateHandler.set(QUERY_KEY, query);
     }
-
+    //wrong:不会被观察者观察到
 //    public void update(String lessonId){
 //        wordList = VocabDatabase.getInstance(App.getInstance()).wordDao().getWordByLessonId(lessonId);
 //    }

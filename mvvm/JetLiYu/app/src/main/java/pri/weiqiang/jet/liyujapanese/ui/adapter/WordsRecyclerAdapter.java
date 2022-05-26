@@ -11,27 +11,39 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.data.database.Word;
 
 
-public class WordsRecyclerAdapter extends RecyclerView.Adapter<WordsRecyclerAdapter.ViewHolder> {
+public class WordsRecyclerAdapter extends ListAdapter<Word,WordsRecyclerAdapter.ViewHolder> {
 
     private static final String TAG = WordsRecyclerAdapter.class.getSimpleName();
-    Context context;
-    List<Word> list;
     // 列表展开标识
     int opened = -1;
     ArrayList<Integer> posOpened = new ArrayList<Integer>();
     OnItemClickListener onItemClickListener;
     Boolean isExpandable;
 
-    public WordsRecyclerAdapter(Context context, List<Word> list, Boolean isExpandable) {
-        this.context = context;
-        this.list = list;
+    public WordsRecyclerAdapter( Boolean isExpandable) {
+        super(DIFF_CALLBACK);
         this.isExpandable = isExpandable;
     }
+
+    private static final DiffUtil.ItemCallback<Word> DIFF_CALLBACK = new DiffUtil.ItemCallback<Word>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Word oldItem, @NonNull Word newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Word oldItem, @NonNull Word newItem) {
+            return oldItem.getWord().equals(newItem.getWord());
+        }
+    };
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -44,25 +56,20 @@ public class WordsRecyclerAdapter extends RecyclerView.Adapter<WordsRecyclerAdap
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        holder.bean = list.get(position);
+        holder.bean = getItem(position);
         holder.mTvWord.setText(holder.bean.getWord());
         holder.mTvPhonetic.setText(String.valueOf(holder.bean.getPhonetic()));
         holder.mTvTranslation.setText(holder.bean.getTranslation());
         holder.bind(position);
 
     }
-
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
-
-    public void updateWordList(List<Word> list){
-        if(this.list!=null){
-            this.list.clear();
-            this.list.addAll(list);
-        }
-    }
+    //使用RecyclerAdapter时使用
+//    public void updateWordList(List<Word> list){
+//        if(this.list!=null){
+//            this.list.clear();
+//            this.list.addAll(list);
+//        }
+//    }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
