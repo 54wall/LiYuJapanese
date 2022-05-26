@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/WordFragment"
-        android:name="pri.weiqiang.jet.liyujapanese.ui.word.WordFragment"
+        android:name="pri.weiqiang.jet.liyujapanese.ui.fragment.WordFragment"
         android:label="@string/word_fragment_label"
         tools:layout="@layout/fragment_word">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/LessonFragment"
-        android:name="pri.weiqiang.jet.liyujapanese.ui.lesson.LessonFragment"
+        android:name="pri.weiqiang.jet.liyujapanese.ui.fragment.LessonFragment"
         android:label="@string/lesson_fragment_label"
         tools:layout="@layout/fragment_lesson">
 

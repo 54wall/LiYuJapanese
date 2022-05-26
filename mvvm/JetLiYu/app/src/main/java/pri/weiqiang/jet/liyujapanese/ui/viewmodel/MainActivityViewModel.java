@@ -1,4 +1,4 @@
-package pri.weiqiang.jet.liyujapanese.ui;
+package pri.weiqiang.jet.liyujapanese.ui.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

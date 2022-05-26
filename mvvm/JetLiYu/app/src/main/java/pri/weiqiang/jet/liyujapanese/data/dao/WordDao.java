@@ -1,4 +1,4 @@
-package pri.weiqiang.jet.liyujapanese.data.database;
+package pri.weiqiang.jet.liyujapanese.data.dao;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import pri.weiqiang.jet.liyujapanese.data.bean.Word;
 
 @Dao
 public interface WordDao {

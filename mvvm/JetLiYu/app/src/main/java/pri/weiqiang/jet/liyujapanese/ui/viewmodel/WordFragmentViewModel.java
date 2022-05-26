@@ -1,4 +1,4 @@
-package pri.weiqiang.jet.liyujapanese.ui.word;
+package pri.weiqiang.jet.liyujapanese.ui.viewmodel;
 
 import android.text.TextUtils;
 
@@ -10,7 +10,7 @@ import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 import pri.weiqiang.jet.liyujapanese.App;
 import pri.weiqiang.jet.liyujapanese.data.database.VocabDatabase;
-import pri.weiqiang.jet.liyujapanese.data.database.Word;
+import pri.weiqiang.jet.liyujapanese.data.bean.Word;
 
 public class WordFragmentViewModel extends ViewModel {
 

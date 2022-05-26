@@ -1,4 +1,4 @@
-package pri.weiqiang.jet.liyujapanese.ui.word;
+package pri.weiqiang.jet.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.databinding.FragmentWordBinding;
 import pri.weiqiang.jet.liyujapanese.ui.adapter.WordsRecyclerAdapter;
+import pri.weiqiang.jet.liyujapanese.ui.viewmodel.WordFragmentViewModel;
 
 public class WordFragment extends Fragment {
     private String TAG = WordFragment.class.getSimpleName();

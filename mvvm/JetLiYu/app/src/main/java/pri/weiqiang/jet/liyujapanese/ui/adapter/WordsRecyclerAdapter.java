@@ -1,6 +1,5 @@
 package pri.weiqiang.jet.liyujapanese.ui.adapter;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.jet.liyujapanese.R;
-import pri.weiqiang.jet.liyujapanese.data.database.Word;
+import pri.weiqiang.jet.liyujapanese.data.bean.Word;
 
 
 public class WordsRecyclerAdapter extends ListAdapter<Word,WordsRecyclerAdapter.ViewHolder> {

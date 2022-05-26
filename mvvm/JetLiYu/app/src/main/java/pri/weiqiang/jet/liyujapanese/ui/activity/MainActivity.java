@@ -1,4 +1,4 @@
-package pri.weiqiang.jet.liyujapanese.ui;
+package pri.weiqiang.jet.liyujapanese.ui.activity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,12 +14,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.databinding.ActivityMainBinding;
-import pri.weiqiang.jet.liyujapanese.ui.word.WordFragment;
+import pri.weiqiang.jet.liyujapanese.ui.viewmodel.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity {
 

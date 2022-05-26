@@ -6,6 +6,8 @@ import android.util.Log;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import pri.weiqiang.jet.liyujapanese.data.bean.Word;
+import pri.weiqiang.jet.liyujapanese.data.dao.WordDao;
 
 @Database(entities = {Word.class}, version = 1)
 public abstract class VocabDatabase extends RoomDatabase {

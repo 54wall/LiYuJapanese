@@ -1,4 +1,4 @@
-package pri.weiqiang.jet.liyujapanese.data.database;
+package pri.weiqiang.jet.liyujapanese.data.bean;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

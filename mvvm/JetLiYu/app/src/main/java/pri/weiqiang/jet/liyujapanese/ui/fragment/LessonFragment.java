@@ -1,4 +1,4 @@
-package pri.weiqiang.jet.liyujapanese.ui.lesson;
+package pri.weiqiang.jet.liyujapanese.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
