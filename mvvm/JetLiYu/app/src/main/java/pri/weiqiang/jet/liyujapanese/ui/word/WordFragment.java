@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.databinding.FragmentWordBinding;
 import pri.weiqiang.jet.liyujapanese.ui.adapter.WordsRecyclerAdapter;
 
@@ -18,7 +20,6 @@ public class WordFragment extends Fragment {
     private String TAG = WordFragment.class.getSimpleName();
     private FragmentWordBinding binding;
     private WordFragmentViewModel model;
-    private RecyclerView rvWord;
     private WordsRecyclerAdapter adapter;
     private boolean isExpandable = false;
     @Override
@@ -35,10 +36,10 @@ public class WordFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+        binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavHostFragment.findNavController(WordFragment.this).navigate(R.id.action_FirstFragment_to_SecondFragment);
+                NavHostFragment.findNavController(WordFragment.this).navigate(R.id.action_WordFragment_to_LessonFragment);
                 model.setQuery("新标日初级_02");
                 //错误用法
 //                model.getWordList("新标日初级_01").observe(getViewLifecycleOwner(),words->{

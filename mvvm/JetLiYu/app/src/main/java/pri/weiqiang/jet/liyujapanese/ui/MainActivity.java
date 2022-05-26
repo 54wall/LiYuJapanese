@@ -1,6 +1,7 @@
 package pri.weiqiang.jet.liyujapanese.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,13 +14,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.databinding.ActivityMainBinding;
+import pri.weiqiang.jet.liyujapanese.ui.word.WordFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String TAG = MainActivity.class.getSimpleName();
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private MainActivityViewModel model;
@@ -57,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(@Nullable final String newName) {
                 // Update the UI, in this case, a TextView.
 //                nameTextView.setText(newName);
-                Snackbar.make(binding.fab, "newName:" + newName, Snackbar.LENGTH_LONG)
+                Log.e(TAG,"newName:"+newName);
+                Snackbar.make(binding.fab, "https://github.com/54wall/LiYuJapanese", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         };
@@ -82,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.item_content) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.action_WordFragment_to_LessonFragment);
             return true;
         }
 
