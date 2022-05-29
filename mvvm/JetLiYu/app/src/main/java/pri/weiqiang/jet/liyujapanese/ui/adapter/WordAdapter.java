@@ -17,16 +17,16 @@ import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.data.bean.Word;
 
 
-public class WordsRecyclerAdapter extends ListAdapter<Word,WordsRecyclerAdapter.ViewHolder> {
+public class WordAdapter extends ListAdapter<Word, WordAdapter.ViewHolder> {
 
-    private static final String TAG = WordsRecyclerAdapter.class.getSimpleName();
+    private static final String TAG = WordAdapter.class.getSimpleName();
     // 列表展开标识
     int opened = -1;
     ArrayList<Integer> posOpened = new ArrayList<Integer>();
     OnItemClickListener onItemClickListener;
     Boolean isExpandable;
 
-    public WordsRecyclerAdapter( Boolean isExpandable) {
+    public WordAdapter(Boolean isExpandable) {
         super(DIFF_CALLBACK);
         this.isExpandable = isExpandable;
     }

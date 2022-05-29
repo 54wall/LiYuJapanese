@@ -27,6 +27,7 @@ public class WordFragmentViewModel extends ViewModel {
     public WordFragmentViewModel(SavedStateHandle savedStateHandle) {
         mSavedStateHandler = savedStateHandle;
         //无法直接使用update(String lessonId),不会响应改变，因为wordList的地址已经改变，不是原来的wordList了，需要重新增加观察者
+        //Transformations.switchMap() https://developer.android.google.cn/topic/libraries/architecture/livedata
         wordList = Transformations.switchMap(
                 savedStateHandle.getLiveData(QUERY_KEY, "新标日初级_01"),
                 lessonId -> {

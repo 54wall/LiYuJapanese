@@ -14,14 +14,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.databinding.FragmentWordBinding;
-import pri.weiqiang.jet.liyujapanese.ui.adapter.WordsRecyclerAdapter;
+import pri.weiqiang.jet.liyujapanese.ui.adapter.WordAdapter;
 import pri.weiqiang.jet.liyujapanese.ui.viewmodel.WordFragmentViewModel;
 
 public class WordFragment extends Fragment {
     private String TAG = WordFragment.class.getSimpleName();
     private FragmentWordBinding binding;
     private WordFragmentViewModel model;
-    private WordsRecyclerAdapter adapter;
+    private WordAdapter adapter;
     private boolean isExpandable = false;
     @Override
     public View onCreateView(
@@ -56,7 +56,7 @@ public class WordFragment extends Fragment {
                 model.setQuery("新标日初级_03");
             }
         });
-        adapter = new WordsRecyclerAdapter(isExpandable);
+        adapter = new WordAdapter(isExpandable);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         binding.rvWord.setLayoutManager(linearLayoutManager);
