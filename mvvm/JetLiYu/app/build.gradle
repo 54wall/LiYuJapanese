@@ -49,15 +49,27 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     // optional - RxJava2 support for Room
-    implementation "androidx.room:room-rxjava2:$room_version"
+//    implementation "androidx.room:room-rxjava2:$room_version"
     // optional - RxJava3 support for Room
-    implementation "androidx.room:room-rxjava3:$room_version"
+//    implementation "androidx.room:room-rxjava3:$room_version"
     // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation "androidx.room:room-guava:$room_version"
+//    implementation "androidx.room:room-guava:$room_version"
     // optional - Test helpers
-    testImplementation "androidx.room:room-testing:$room_version"
+//    testImplementation "androidx.room:room-testing:$room_version"
     // optional - Paging 3 Integration
     implementation "androidx.room:room-paging:2.5.0-alpha01"
+
+    def paging_version = "3.1.1"
+
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    // optional - RxJava2 support
+//    implementation "androidx.paging:paging-rxjava2:$paging_version"
+    // optional - RxJava3 support
+//    implementation "androidx.paging:paging-rxjava3:$paging_version"
+    // optional - Guava ListenableFuture support
+//    implementation "androidx.paging:paging-guava:$paging_version"
+    // optional - Jetpack Compose integration
+    implementation "androidx.paging:paging-compose:1.0.0-alpha14"
 
 
 }

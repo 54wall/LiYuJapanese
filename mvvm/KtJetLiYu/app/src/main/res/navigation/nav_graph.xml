@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/WordFragment">
+
+    <fragment
+        android:id="@+id/WordFragment"
+        android:name="pri.weiqiang.jet.kt.liyujapanese.ui.fragment.WordFragment"
+        android:label="@string/word_fragment_label"
+        tools:layout="@layout/fragment_word">
+
+        <action
+            android:id="@+id/action_WordFragment_to_LessonFragment"
+            app:destination="@id/LessonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LessonFragment"
+        android:name="pri.weiqiang.jet.kt.liyujapanese.ui.fragment.LessonFragment"
+        android:label="@string/lesson_fragment_label"
+        tools:layout="@layout/fragment_lesson">
+
+        <action
+            android:id="@+id/action_LessonFragment_to_WordFragment"
+            app:destination="@id/WordFragment" />
+    </fragment>
+</navigation>

@@ -22,13 +22,13 @@ android {
         debug {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
-            storeFile file('D:/Develop/tdr/code/aihub/Home/debug.keystore')
+            storeFile file('E:\\Develop\\Android\\Code\\debug.keystore')
             storePassword 'android'
         }
         release {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
-            storeFile file('D:/Develop/tdr/code/aihub/Home/debug.keystore')
+            storeFile file('E:\\Develop\\Android\\Code\\debug.keystore')
             storePassword 'android'
         }
 
