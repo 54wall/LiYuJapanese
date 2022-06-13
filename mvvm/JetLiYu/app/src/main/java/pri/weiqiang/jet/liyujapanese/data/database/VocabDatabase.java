@@ -19,7 +19,7 @@ public abstract class VocabDatabase extends RoomDatabase {
 
     // For Singleton instantiation
     private static final Object LOCK = new Object();
-    private static VocabDatabase sInstance;
+    private static volatile VocabDatabase sInstance;
 
     public static VocabDatabase getInstance(Context context) {
         Log.d(LOG_TAG, "Getting the database");
