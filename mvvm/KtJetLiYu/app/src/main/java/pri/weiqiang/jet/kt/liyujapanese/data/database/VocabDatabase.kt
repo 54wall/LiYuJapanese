@@ -5,12 +5,15 @@ import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import pri.weiqiang.jet.kt.liyujapanese.data.bean.Lesson
 import pri.weiqiang.jet.kt.liyujapanese.data.bean.Word
+import pri.weiqiang.jet.kt.liyujapanese.data.dao.LessonDao
 import pri.weiqiang.jet.kt.liyujapanese.data.dao.WordDao
 
-@Database(entities = [Word::class], version = 1)
+@Database(entities = [Word::class, Lesson::class], version = 1)
 abstract class VocabDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao?
+    abstract fun lessonDao(): LessonDao?
 
     companion object {
         private val DATABASE_NAME = "vocab"
