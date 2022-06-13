@@ -10,7 +10,7 @@ class App : Application() {
     }
 
     //单例化的第一种方式：声明一个简单的Application属性
-    companion object{
+    companion object {
         //情况一：声明可空的属性
         private var instance: App? = null
         fun instance() = instance!!

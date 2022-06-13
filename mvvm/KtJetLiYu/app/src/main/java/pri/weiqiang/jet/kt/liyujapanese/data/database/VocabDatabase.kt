@@ -10,13 +10,13 @@ import pri.weiqiang.jet.kt.liyujapanese.data.dao.WordDao
 
 @Database(entities = [Word::class], version = 1)
 abstract class VocabDatabase : RoomDatabase() {
-    abstract fun wordDao() : WordDao?
+    abstract fun wordDao(): WordDao?
 
-    companion object{
+    companion object {
         private val DATABASE_NAME = "vocab"
         private val TAG = VocabDatabase::class.java.simpleName
-        private var sInstance:VocabDatabase? = null
-        fun getInstance(context:Context):VocabDatabase?{
+        private var sInstance: VocabDatabase? = null
+        fun getInstance(context: Context): VocabDatabase? {
 //            return sInstance ?: synchronized(this){
 //                sInstance = Room.
 //                    databaseBuilder(context.applicationContext,VocabDatabase::class.java, DATABASE_NAME)

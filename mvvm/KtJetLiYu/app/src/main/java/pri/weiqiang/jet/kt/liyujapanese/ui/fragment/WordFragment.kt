@@ -2,10 +2,10 @@ package pri.weiqiang.jet.kt.liyujapanese.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import pri.weiqiang.jet.kt.liyujapanese.R
@@ -19,14 +19,15 @@ import pri.weiqiang.jet.kt.liyujapanese.ui.viewmodel.WordFragmentViewModel
 class WordFragment : Fragment() {
     private val TAG = WordFragment::class.java.simpleName
     private var _binding: FragmentWordBinding? = null
-    private var model:WordFragmentViewModel? = null
+    private var model: WordFragmentViewModel? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
         _binding = FragmentWordBinding.inflate(inflater, container, false)
@@ -45,9 +46,8 @@ class WordFragment : Fragment() {
 
         model = ViewModelProvider(this).get(WordFragmentViewModel::class.java)
 
-        model!!.wordList.observe(viewLifecycleOwner){
-            words:List<Word> ->
-            if (words !=null && words.size!=0){
+        model!!.wordList.observe(viewLifecycleOwner) { words: List<Word> ->
+            if (words != null && words.size != 0) {
                 Log.e(TAG, " words.get(0):" + words[0].toString())
             }
 

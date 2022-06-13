@@ -11,15 +11,15 @@ import pri.weiqiang.jet.kt.liyujapanese.data.bean.Word
 interface WordDao {
 
     @Query("SELECT * FROM words WHERE lesson_id LIKE :lessonId")
-    fun getWordByLessonId(lessonId:String):LiveData<List<Word>>
+    fun getWordByLessonId(lessonId: String): LiveData<List<Word>>
 
     @Query("SELECT * FROM words ")
-    fun getAll():LiveData<List<Word>>
+    fun getAll(): LiveData<List<Word>>
 
     @Query("SELECT * FROM words WHERE _id LIKE:id ")
-    fun getWordById(id:Int):LiveData<List<Word>>
+    fun getWordById(id: Int): LiveData<List<Word>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg words:Word)
+    fun insertAll(vararg words: Word)
 
 }
