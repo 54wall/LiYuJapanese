@@ -12,7 +12,7 @@ data class Word(
     @ColumnInfo(name = "word") val word: String?,
     @ColumnInfo(name = "phonetic") val phonetic: String?,
     @ColumnInfo(name = "translation") val translation: String?,
-    @ColumnInfo(name = "fav") val fav: Int,//同cache
+    @ColumnInfo(name = "fav") var fav: Int,//同cache
     /*
     * Expected:
     TableInfo{name='words', columns={cache=Column{name='cache', type='INTEGER', affinity='3', notNull=false, primaryKeyPosition=0, defaultValue='null'}, phonetic=Column{name='phonetic', type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0, defaultValue='null'}, translation=Column{name='translation', type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0, defaultValue='null'}, fav=Column{name='fav', type='INTEGER', affinity='3', notNull=false, primaryKeyPosition=0, defaultValue='null'}, _id=Column{name='_id', type='INTEGER', affinity='3', notNull=true, primaryKeyPosition=1, defaultValue='null'}, book_id=Column{name='book_id', type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0, defaultValue='null'}, lesson_id=Column{name='lesson_id', type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0, defaultValue='null'}, word=Column{name='word', type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0, defaultValue='null'}}, foreignKeys=[], indices=[]}

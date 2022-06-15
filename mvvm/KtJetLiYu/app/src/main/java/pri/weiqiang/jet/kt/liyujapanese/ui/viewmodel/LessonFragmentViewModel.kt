@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import pri.weiqiang.jet.kt.liyujapanese.App
 import pri.weiqiang.jet.kt.liyujapanese.data.bean.Lesson
 import pri.weiqiang.jet.kt.liyujapanese.data.database.VocabDatabase
-
+//这里为Java转换Kotlin而来
 class LessonFragmentViewModel: ViewModel() {
-    private val TAG:String = LessonFragmentViewModel::class.java.simpleName
+    private val TAG: String = LessonFragmentViewModel::class.java.simpleName
 //    private val lessonList:LiveData<List<Lesson>> by lazy {
 //        lessonList?.also {
 //            VocabDatabase.getInstance(App.instance())?.lessonDao()?.getAll()

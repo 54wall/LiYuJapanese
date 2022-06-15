@@ -52,8 +52,7 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
-
-    // To use Kotlin annotation processing tool (kapt)
+    //plugins { id 'kotlin-kapt'  }To use Kotlin annotation processing tool (kapt)
     //不加则报： java.lang.RuntimeException: cannot find implementation for pri.weiqiang.jet.kt.liyujapanese.data.database.VocabDatabase. VocabDatabase_Impl does not exist
     kapt("androidx.room:room-compiler:$roomVersion")
 
