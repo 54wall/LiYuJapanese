@@ -14,13 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import pri.weiqiang.jet.liyujapanese.R;
 import pri.weiqiang.jet.liyujapanese.databinding.FragmentWordBinding;
+import pri.weiqiang.jet.liyujapanese.ui.activity.MainActivity;
 import pri.weiqiang.jet.liyujapanese.ui.adapter.WordAdapter;
+import pri.weiqiang.jet.liyujapanese.ui.viewmodel.MainActivityViewModel;
 import pri.weiqiang.jet.liyujapanese.ui.viewmodel.WordFragmentViewModel;
 
 public class WordFragment extends Fragment {
     private String TAG = WordFragment.class.getSimpleName();
     private FragmentWordBinding binding;
     private WordFragmentViewModel model;
+    private MainActivityViewModel mainModel;
     private WordAdapter adapter;
     private boolean isExpandable = false;
     @Override
@@ -62,6 +65,12 @@ public class WordFragment extends Fragment {
         binding.rvWord.setLayoutManager(linearLayoutManager);
         binding.rvWord.setHasFixedSize(true);
         binding.rvWord.setAdapter(adapter);
+        mainModel = new ViewModelProvider(requireActivity()).get(MainActivityViewModel.class);
+        mainModel.getCurrentLesson().observe(getViewLifecycleOwner(), currentLesson -> {
+            Log.e(TAG,"currentLesson:"+currentLesson);
+            model.setQuery(currentLesson);
+            ((MainActivity)getActivity()).getSupportActionBar().setTitle(currentLesson);
+        });
         model = new ViewModelProvider(this).get(WordFragmentViewModel.class);
         //ViewModel 绝不能引用视图、Lifecycle 或可能存储对 Activity 上下文的引用的任何类。
 //        model.setContext(getActivity());
@@ -72,7 +81,6 @@ public class WordFragment extends Fragment {
             adapter.submitList(words);
 
         });
-        Log.e(TAG, "wordList:" + model.getWordList());
     }
 
     @Override

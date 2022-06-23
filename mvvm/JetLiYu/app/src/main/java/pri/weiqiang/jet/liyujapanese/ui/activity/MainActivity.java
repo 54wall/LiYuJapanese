@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String anotherName = "John Doe";
-                model.getCurrentName().setValue(anotherName);
+                model.getCurrentLesson().setValue(anotherName);
 
             }
         });
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-        model.getCurrentName().observe(this, nameObserver);
+        model.getCurrentLesson().observe(this, nameObserver);
 
     }
 

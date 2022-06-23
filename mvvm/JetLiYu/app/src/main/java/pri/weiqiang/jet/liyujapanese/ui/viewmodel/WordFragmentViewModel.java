@@ -30,7 +30,7 @@ public class WordFragmentViewModel extends ViewModel {
         //Transformations.switchMap() https://developer.android.google.cn/topic/libraries/architecture/livedata
         wordList = Transformations.switchMap(
                 savedStateHandle.getLiveData(QUERY_KEY, "新标日初级_01"),
-                lessonId -> {
+                (String lessonId)-> {
                     //这里为什么要做TextUtils.isEmpty(lessonId)判断
                     if (TextUtils.isEmpty(lessonId)) {
                         //database中直接使用App.getInstance不要从ViewModel传入任何Context

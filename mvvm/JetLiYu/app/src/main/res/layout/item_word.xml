@@ -44,7 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="@string/tips_memory"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="@dimen/pixivillust_text_size" />
 
@@ -54,7 +53,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="@string/tips_memory"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="@dimen/pixivillust_text_size" />
 
@@ -63,7 +61,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="@string/tips_memory"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="@dimen/pixivillust_text_size" />
 
